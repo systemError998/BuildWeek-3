@@ -38,3 +38,15 @@
 }
 
 /*FINE NAVBAR*/
+
+/* Footer Style */
+.fontFooter {
+    font-size: 0.8rem;
+    color: rgb(100, 98, 98);
+    line-height: 1.5rem;
+}
+
+.ulFooter li a {
+    color: rgb(100, 98, 98);
+    text-decoration: none;
+}
