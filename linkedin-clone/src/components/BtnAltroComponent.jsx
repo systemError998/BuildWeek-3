@@ -5,7 +5,7 @@ export const BtnAltroComponent = () => {
     return (
         <Button
             variant="outline-secondary"
-            className='rounded-pill'
+            className='rounded-pill fw-semibold'
         >
             Altro
         </Button>

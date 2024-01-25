@@ -5,7 +5,7 @@ export const BtnAggiungiSezioneComponent = () => {
     return (
         <Button
             variant="outline-primary"
-            className='rounded-pill'
+            className='rounded-pill fw-semibold'
         >
             Aggiungi sezione del profilo
         </Button>

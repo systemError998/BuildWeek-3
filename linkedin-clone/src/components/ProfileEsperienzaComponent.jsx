@@ -11,7 +11,7 @@ export default function ProfileEsperienzaComponent() {
                     <h2 className='ms-3 mt-3 fs-4'>Esperienza</h2>
                     <Button
                         variant="outline-secondary"
-                        className='position-absolute top-0 end-0 rounded-circle mt-2 me-3'
+                        className='position-absolute top-0 end-0 rounded-circle mt-2 me-4'
                     >
                         <i className="bi bi-pencil"></i>
                     </Button>

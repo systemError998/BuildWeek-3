@@ -18,7 +18,7 @@ export const MainProfileComponent = () => {
     .then(response => response.json())
     .then(data => {
       console.log(data[0]);
-      setProfile(data[55]);
+      setProfile(data[34]);
     })
     .catch(error=>{
       console.error(error)
