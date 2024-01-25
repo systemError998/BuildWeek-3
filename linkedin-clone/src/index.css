@@ -7,9 +7,9 @@
 }
 
 .bg-blue-linkedin {
-  background-color: #0a66c2;
+  background-color: #0a66c2 !important;
 }
 
 .text-blue-linkedin {
-  color: #0a66c2;
+  color: #0a66c2 !important;
 }
