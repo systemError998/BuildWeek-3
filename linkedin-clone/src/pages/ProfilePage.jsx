@@ -1,7 +1,21 @@
 import React from 'react'
+import { Row, Col, Container } from 'react-bootstrap'
+import { SideBarComponent } from '../components/SideBarComponent'
+import { MainProfileComponent } from '../components/MainProfileComponent'
+import FooterProfile from '../components/FooterProfile'
 
 export default function ProfilePage() {
   return (
-    <div>ProfilePage</div>
+    <Container className='my-5'>
+      <Row className='gap-1 justify-content-around'>
+        <Col xs={12} md={8}>
+          <MainProfileComponent />
+        </Col>
+        <Col md={3}>
+          <SideBarComponent />
+        </Col>
+      </Row>
+      <FooterProfile />
+    </Container>
   )
 }

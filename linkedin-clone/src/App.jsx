@@ -13,10 +13,10 @@ function App() {
       <BrowserRouter>
         <MyNavbar />
         <Routes>
-          <Route path='/' element={<Homepage/>}/>
-          <Route path='/profilepage' element={<ProfilePage />}/>
-          <Route path='/jobpage' element={<JobPage/>}/>
-          <Route path='/notfound' element={<NotFoundPage/>}/>
+          <Route path='/' element={<Homepage />} />
+          <Route path='/profilepage' element={<ProfilePage />} />
+          <Route path='/jobpage' element={<JobPage />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>
