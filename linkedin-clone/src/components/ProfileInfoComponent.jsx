@@ -4,9 +4,8 @@ import '../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
 import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
 import { BtnAltroComponent } from './BtnAltroComponent'
-import EditIconComponent from './EditIconComponent';
 
-export const ProfileInfoComponent = () => {
+export const ProfileInfoComponent = ({profile}) => {
     return (
         <Card className='bg-white w-100'>
             <div className='position-relative mb-3'>
@@ -17,7 +16,7 @@ export const ProfileInfoComponent = () => {
                     alt="banner-img"
                 />
                 <img
-                    src="https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+                    src={profile.image}
                     alt="profile-img"
                     style={{ height: "150px", width: "150px" }}
                     className='rounded-circle position-absolute top-100 start-0 translate-middle custom-margin border border-white border-3'
@@ -25,12 +24,12 @@ export const ProfileInfoComponent = () => {
             </div>
             <Card.Body >
                 <div className='position-relative'>
-                    <Card.Title className='mt-5 fs-3'>Nome Cognome</Card.Title>
-                    <EditIconComponent />
+                    <Card.Title className='mt-5 fs-3'>{profile.name} {profile.surname}</Card.Title>
+                    
                 </div>
                 <Card.Text>
-                    <h2 className='fs-6 fw-normal'>Profilo professionale</h2>
-                    <h3 className='fs-6 fw-normal text-secondary'>Città, Regione, Paese &#183;
+                    <h2 className='fs-6 fw-normal'>{profile.title}</h2>
+                    <h3 className='fs-6 fw-normal text-secondary'>{profile.area} &#183;
                         <span className='link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'> Informazioni di contatto</span>
                     </h3>
                     <h4 className='fs-6 fw-normal text-primary'>numero collegamenti</h4>
