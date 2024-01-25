@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import '../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
 import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
 import { BtnAltroComponent } from './BtnAltroComponent'
+import EditIconComponent from './EditIconComponent';
 
 export const ProfileInfoComponent = () => {
     return (
@@ -25,9 +26,7 @@ export const ProfileInfoComponent = () => {
             <Card.Body >
                 <div className='position-relative'>
                     <Card.Title className='mt-5 fs-3'>Nome Cognome</Card.Title>
-                    <Button variant="outline-secondary" className='position-absolute top-0 end-0 rounded-circle'>
-                        <i className="bi bi-pencil"></i>
-                    </Button>
+                    <EditIconComponent />
                 </div>
                 <Card.Text>
                     <h2 className='fs-6 fw-normal'>Profilo professionale</h2>
