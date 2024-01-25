@@ -1,3 +1,7 @@
+/* Sezione RightBar */
+.hoverBtn:hover {
+background: lightgray!important;
+}
 
 .rounded {
     border-radius: 50em;
@@ -12,6 +16,8 @@
     height: 3em;
     border-radius: 50% !important;
 }
+
+/* Fine Sezione RightBar */
 
 /*SEZIONE NAVBAR*/
 

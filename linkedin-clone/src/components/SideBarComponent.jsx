@@ -1,17 +1,11 @@
-import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Card, Modal } from 'react-bootstrap';
+import ModalComp from './ModalComp';
 
 export const SideBarComponent = () => {
+
   return (
     <>
-      {/* <div>
-        <h6 className='bg-white my-1 p-2'>Lingua del profilo</h6>
-      </div>
-      <hr />
-      <div>
-        <h6 className='bg-white my-1 p-2'>Public profile & URL</h6>
-      </div> */}
-      
       <Card style={{ width: '18rem' }} >
       <Card.Body className='bg-white rounded'>
         <div className='d-flex bg-white align-items-center justify-content-between'>
@@ -27,7 +21,6 @@ export const SideBarComponent = () => {
         <p class="m-0 text-secondary">www.linkedin.com/in/*placeholder*</p>
       </Card.Body>
     </Card>
-
     <Card style={{ width: '18rem' }} className='mt-2'>
       <Card.Body>
         <Card.Title className='mb-3 fs-6 fw-bold'>Altri profili consultati</Card.Title>
@@ -44,6 +37,7 @@ export const SideBarComponent = () => {
           </div>
         </div>
         <hr />
+      <ModalComp/>
       </Card.Body>
     </Card>
 
@@ -64,6 +58,7 @@ export const SideBarComponent = () => {
           </div>
         </div>
         <hr />
+        <ModalComp/>
       </Card.Body>
     </Card>
 
