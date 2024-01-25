@@ -1,6 +1,6 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar';
+import { BrowserRouter , Routes , Route } from "react-router-dom";
+import MyNavbar from './components/Navbar';
 import Homepage from './pages/Homepage';
 import ProfilePage from './pages/ProfilePage';
 import JobPage from './pages/JobPage';
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <MyNavbar />
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/profilepage' element={<ProfilePage />} />

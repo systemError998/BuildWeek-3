@@ -1,3 +1,4 @@
+
 .rounded {
     border-radius: 50em;
 }
@@ -11,3 +12,29 @@
     height: 3em;
     border-radius: 50% !important;
 }
+
+/*SEZIONE NAVBAR*/
+
+.testoNavbar {
+    font-size: 0.9rem !important;
+    color: #666666 !important;
+    font-weight: 400 !important;
+}
+
+.linkNavbar{
+    font-size: 0.9rem !important;
+    color: #915907 !important;
+    font-weight: 400 !important;
+    text-decoration: underline !important;
+}
+
+.testoNavbar:hover, .linkNavbar:hover {
+    color: #000000 !important;
+}
+
+.navbarIcon {
+    width: 1.5rem;
+    height: auto;
+}
+
+/*FINE NAVBAR*/
