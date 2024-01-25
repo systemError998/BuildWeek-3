@@ -19,7 +19,6 @@ export default function ProfileEsperienzaComponent({experience}) {
                 {experience.map((exp,key) => (
                     <EsperienzaDettaglioComponent posizione={exp.role} azienda={exp.company} luogo={exp.area} descrizione={exp.description}/>
                 ))}
-                
             </ListGroup>
         </Card>
     )

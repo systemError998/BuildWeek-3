@@ -4,7 +4,7 @@ import '../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
 import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
 import { BtnAltroComponent } from './BtnAltroComponent'
-import Banner from '../assets/Banner-Profilo-LinkedIn.png'
+import Banner from '../assets/img/Banner-Profilo-LinkedIn.png'
 
 export const ProfileInfoComponent = ({ profile }) => {
     return (
