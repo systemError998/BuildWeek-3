@@ -8,7 +8,7 @@ export default function EsperienzaDettaglioComponent() {
                 <img
                     src="https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
                     alt="azienda"
-                    style={{width: '50px', height: '50px'}}
+                    style={{ width: '50px', height: '50px' }}
                 />
             </div>
             <div>

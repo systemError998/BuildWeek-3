@@ -7,7 +7,7 @@ import { BtnAltroComponent } from './BtnAltroComponent'
 
 export const ProfileInfoComponent = () => {
     return (
-        <Card style={{ width: '100%' }} className='bg-white'>
+        <Card className='bg-white w-100'>
             <div className='position-relative mb-3'>
                 <Card.Img
                     variant="top"

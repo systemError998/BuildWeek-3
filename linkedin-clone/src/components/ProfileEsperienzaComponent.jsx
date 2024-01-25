@@ -5,7 +5,7 @@ import EsperienzaDettaglioComponent from './EsperienzaDettaglioComponent'
 
 export default function ProfileEsperienzaComponent() {
     return (
-        <Card style={{ width: '100%' }} className='my-2'>
+        <Card className='my-2 w-100'>
             <ListGroup variant="flush">
                 <h2 className='ms-3 mt-3 fs-4'>Esperienza</h2>
                 <EsperienzaDettaglioComponent />
