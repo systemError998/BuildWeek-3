@@ -24,7 +24,7 @@ export const ProfileInfoComponent = () => {
             </div>
             <Card.Body >
                 <div className='position-relative'>
-                    <Card.Title className='mt-5'>Nome Cognome</Card.Title>
+                    <Card.Title className='mt-5 fs-3'>Nome Cognome</Card.Title>
                     <Button variant="outline-secondary" className='position-absolute top-0 end-0 rounded-circle'>
                         <i className="bi bi-pencil"></i>
                     </Button>
