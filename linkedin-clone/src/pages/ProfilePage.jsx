@@ -5,12 +5,12 @@ import { MainProfileComponent } from '../components/MainProfileComponent'
 
 export default function ProfilePage() {
   return (
-    <Container>
+    <Container className='my-5'>
       <Row className='gap-1 justify-content-around'>
-        <Col xs={12} md={8} className='bg-body-tertiary'>
+        <Col xs={12} md={8}>
           <MainProfileComponent />
         </Col>
-        <Col md={3} className='bg-body-tertiary'>
+        <Col md={3}>
           <SideBarComponent />
         </Col>
       </Row>

@@ -2,6 +2,6 @@ import React from 'react'
 
 export const SideBarComponent = () => {
   return (
-    <div>SideBarComponent</div>
+    <div className='bg-white'>SideBarComponent</div>
   )
 }

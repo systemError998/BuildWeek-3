@@ -2,6 +2,6 @@ import React from 'react'
 
 export const MainProfileComponent = () => {
   return (
-    <div>MainProfileComponent</div>
+    <div className='bg-white'>MainProfileComponent</div>
   )
 }
