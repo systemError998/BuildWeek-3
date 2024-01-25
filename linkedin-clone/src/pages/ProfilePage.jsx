@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { SideBarComponent } from '../components/SideBarComponent'
 import { MainProfileComponent } from '../components/MainProfileComponent'
+import FooterProfile from '../components/FooterProfile'
 
 export default function ProfilePage() {
   return (
@@ -14,6 +15,7 @@ export default function ProfilePage() {
           <SideBarComponent />
         </Col>
       </Row>
+      <FooterProfile />
     </Container>
   )
 }
