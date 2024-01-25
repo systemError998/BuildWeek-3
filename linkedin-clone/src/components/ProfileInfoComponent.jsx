@@ -1,6 +1,9 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap';
 import '../assets/css/MainProfileStyle.css'
+import { BtnDisponibileComponent } from './BtnDisponibileComponent'
+import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
+import { BtnAltroComponent } from './BtnAltroComponent'
 
 export const ProfileInfoComponent = () => {
     return (
@@ -34,9 +37,9 @@ export const ProfileInfoComponent = () => {
                     <h4 className='fs-6 fw-normal text-primary'>numero collegamenti</h4>
                 </Card.Text>
                 <div className='d-flex gap-3'>
-                    <Button variant="primary" className='rounded-pill'>Disponibile per</Button>
-                    <Button variant="outline-primary" className='rounded-pill'>Aggiungi sezione del profilo</Button>
-                    <Button variant="outline-secondary" className='rounded-pill'>Altro</Button>
+                    <BtnDisponibileComponent />
+                    <BtnAggiungiSezioneComponent />
+                    <BtnAltroComponent />
                 </div>
             </Card.Body>
         </Card>
