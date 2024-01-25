@@ -1,11 +1,25 @@
-/* Footer Style */
-.fontFooter {
-    font-size: 0.8rem;
-    color: rgb(100, 98, 98);
-    line-height: 1.5rem;
+/*SEZIONE NAVBAR*/
+
+.testoNavbar {
+    font-size: 0.9rem !important;
+    color: #666666 !important;
+    font-weight: 400 !important;
 }
 
-.ulFooter li a {
-    color: rgb(100, 98, 98);
-    text-decoration: none;
+.linkNavbar{
+    font-size: 0.9rem !important;
+    color: #915907 !important;
+    font-weight: 400 !important;
+    text-decoration: underline !important;
 }
+
+.testoNavbar:hover, .linkNavbar:hover {
+    color: #000000 !important;
+}
+
+.navbarIcon {
+    width: 1.5rem;
+    height: auto;
+}
+
+/*FINE NAVBAR*/
