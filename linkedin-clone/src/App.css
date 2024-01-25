@@ -1,0 +1,13 @@
+.rounded {
+    border-radius: 50em;
+}
+
+.rndCircle {
+    border-radius: 50em !important;
+}
+
+.imgCircle {
+    width: 3em;
+    height: 3em;
+    border-radius: 50% !important;
+}
