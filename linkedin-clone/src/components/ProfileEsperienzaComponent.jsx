@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import EsperienzaDettaglioComponent from './EsperienzaDettaglioComponent'
 
-export default function ProfileEsperienzaComponent() {
+export default function ProfileEsperienzaComponent({experience}) {
     return (
         <Card className='my-2 w-100'>
             <ListGroup variant="flush">
@@ -16,7 +16,10 @@ export default function ProfileEsperienzaComponent() {
                         <i className="bi bi-pencil"></i>
                     </Button>
                 </div>
-                <EsperienzaDettaglioComponent />
+                {experience.map((exp,key) => (
+                    <EsperienzaDettaglioComponent posizione={exp.role} azienda={exp.company} luogo={exp.area} descrizione={exp.description}/>
+                ))}
+                
             </ListGroup>
         </Card>
     )

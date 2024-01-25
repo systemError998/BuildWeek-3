@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListGroup } from 'react-bootstrap'
 
-export default function EsperienzaDettaglioComponent() {
+export default function EsperienzaDettaglioComponent({posizione,azienda,descrizione,luogo}) {
     return (
         <ListGroup.Item className='d-flex gap-2'>
             <div>
@@ -13,16 +13,16 @@ export default function EsperienzaDettaglioComponent() {
             </div>
             <div>
                 <h4 className='fs-5 '>
-                    Posizione
+                    {posizione}
                 </h4>
                 <h5 className='fs-6 fw-normal'>
-                    Azienda &#183; <span>Contratto</span>
+                    {azienda} &#183; <span>Contratto</span>
                 </h5>
                 <h6 className='fs-6 fw-normal text-secondary'>
-                    Periodo &#183; Luogo &#183; In sede / Da remoto
+                    Periodo &#183; {luogo} &#183; In sede / Da remoto
                 </h6>
                 <p className='fs-6 fw-normal'>
-                    Descrizione mansioni
+                    {descrizione}
                 </p>
                 <h6 className='fs-6'>
                     <i class="bi bi-gem"></i>
