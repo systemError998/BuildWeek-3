@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Container, Nav, Form } from 'react-bootstrap';
+import { Navbar, Container, Nav, Form, Dropdown } from 'react-bootstrap';
 import { TiHome } from "react-icons/ti";
 import { IoPeople } from "react-icons/io5";
 import { MdOutlineWork } from "react-icons/md";
@@ -8,9 +8,28 @@ import { FaBell } from "react-icons/fa";
 import { CgMenuGridR } from "react-icons/cg";
 import { IoSearch } from "react-icons/io5";
 import Logo from '../assets/logo.png';
+import { useState, useEffect, useRef } from 'react';
 
 export default function MyNavbar() {
 
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  const handleOpen = () => setOpen(!open);
+
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
   return (
     <>
     <Navbar
@@ -52,7 +71,7 @@ export default function MyNavbar() {
               {/*Voci del menù della Navbar*/}
               <div>
                 <Nav
-                  className="d-flex justify-content-between align-items-center me-3"
+                  className="d-flex justify-content-between align-items-baseline me-3"
                   style={{width: '30rem'}}>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
@@ -97,10 +116,18 @@ export default function MyNavbar() {
                   {/*SOTTO: Profilo personale - bisogna aggiunger un dropdown e
                   l'immagine del profilo che si aggiorna dinamicamente*/}
                   <div className='text-center'>
-                    <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
-                        <p className='mb-0'>Tu</p>
-                      </Nav.Link>
+                    <div className= 'm-0 p-0'>
+                      <img onClick={handleOpen} src={Logo} alt="Profile Picture" style={{height: '1.7rem', width: '1.7rem', borderRadius: '50%', margin: '0', padding: '0'}}/>
+                      <Dropdown show={open} onClick={handleOpen} ref={ref}>
+                        <Dropdown.Toggle as={Nav.Link} className='testoNavbar m-0 p-0'>
+                          <span>Tu</span>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu className='mt-3 dropdown-menu dropdown-menu-end'>
+                          <Dropdown.Item>Action</Dropdown.Item>
+                          <Dropdown.Item>Another action</Dropdown.Item>
+                          <Dropdown.Item>Something else here</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
                     </div>
                   </div>
                 </Nav>
