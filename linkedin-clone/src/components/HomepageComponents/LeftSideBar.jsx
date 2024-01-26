@@ -32,8 +32,18 @@ export default function LeftSideBar() {
                 </ListGroup>
             </Card>
             <Card className='w-75 mt-2'>
-                <Card.Body>
-                
+                <Card.Body className='pb-0'>
+                <ul className='p-0'>
+                    <li className='listLeftSideBar mb-2'>
+                        <a href="" className='text-decoration-none fw-bold '>Gruppi</a>
+                    </li>
+                    <li className='d-flex justify-content-between align-items-center mb-2'>
+                        <a href="" className='text-decoration-none fw-bold'>Eventi</a><span><i className="bi bi-plus-circle-fill fs-5 text-secondary"></i></span>
+                    </li>
+                    <li className='listLeftSideBar m-0'>
+                        <a href="" className='text-decoration-none fw-bold'>Hashtag seguiti</a>
+                    </li>
+                </ul>
                 </Card.Body>
                 <ListGroup className='list-group-flush'>
                     <ListGroup.Item action variant='ligth'>

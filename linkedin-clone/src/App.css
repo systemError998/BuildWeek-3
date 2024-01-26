@@ -119,3 +119,16 @@ background: lightgray!important;
     width: 100%;
     object-fit: cover;
 }
+
+.imgRightSideBar {
+    object-fit: cover;
+    height: 13em;
+}
+
+.listLeftSideBar {
+    list-style: none;
+}
+
+#collapse-right {
+    position: relative;
+  }
