@@ -16,9 +16,18 @@ export default function ProfileEsperienzaComponent({experience}) {
                         <i className="bi bi-pencil"></i>
                     </Button>
                 </div>
-                {experience.map((exp,key) => (
-                    <EsperienzaDettaglioComponent posizione={exp.role} azienda={exp.company} luogo={exp.area} descrizione={exp.description}/>
-                ))}
+                {experience.length > 0  ? (
+                    experience.map((exp,key) => (
+                    <EsperienzaDettaglioComponent 
+                    posizione={exp.role} 
+                    azienda={exp.company} 
+                    luogo={exp.area} 
+                    descrizione={exp.description}
+                    startDate={exp.startDate}
+                    endDate={exp.endDate}
+                    />))
+                    ) 
+                    : (<h4>Nessuna Esperienza :/ </h4>)}
             </ListGroup>
         </Card>
     )

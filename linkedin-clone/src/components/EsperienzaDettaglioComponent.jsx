@@ -2,7 +2,20 @@ import React from 'react'
 import { ListGroup } from 'react-bootstrap'
 import ImgAzienda from '../assets/img/Img-azienda.gif'
 
-export default function EsperienzaDettaglioComponent({ posizione, azienda, descrizione, luogo }) {
+export default function EsperienzaDettaglioComponent({ posizione, azienda, descrizione, luogo, startDate, endDate }) {
+
+    const startDateFormatted = new Date(startDate).toLocaleDateString('it-IT', {
+        year: 'numeric',
+        month: 'short',
+      });
+
+    const endDateFormatted = endDate
+      ? new Date(endDate).toLocaleDateString('it-IT', {
+          year: 'numeric',
+          month: 'short',
+        })
+      : 'Presente';
+
     return (
         <ListGroup.Item className='d-flex gap-2'>
             <div
@@ -19,7 +32,7 @@ export default function EsperienzaDettaglioComponent({ posizione, azienda, descr
                     {azienda} &#183; <span>Contratto</span>
                 </h5>
                 <h6 className='fs-6 fw-normal text-secondary'>
-                    Periodo &#183; {luogo} &#183; In sede
+                    {startDateFormatted} - {endDateFormatted} &#183; {luogo} &#183; In sede
                 </h6>
                 <p className='fs-6 fw-normal'>
                     {descrizione}

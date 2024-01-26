@@ -6,14 +6,8 @@ import ProfileRisorseComponent from './ProfileRisorseComponent'
 import ProfileAttivitaComponent from './ProfileAttivitaComponent';
 import ProfileEsperienzaComponent from './ProfileEsperienzaComponent';
 
-// ID di prova:
 
-// nessuna esperienza : "6551f702c55e7e0018f83c10"
-// con esperienza: "6551e7bbc55e7e0018f83bfb"
-
-//EDIT ID IN profileId2 (riga 26 aprox.)
-
-export const MainProfileComponent = () => {
+export const MyProfileComponent = () => {
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
 
@@ -21,21 +15,18 @@ export const MainProfileComponent = () => {
   const[experience, setExperience] = useState([]);
 
 
-  // const { profileId } = useParams();  USARE QUANDO SARÀ COLEGATO ALLA SIDEBAR
 
-  const profileId2 = "6551e7bbc55e7e0018f83bfb"  ;
-
-  const urlProfile = "https://striveschool-api.herokuapp.com/api/profile/";
+  const urlMyProfile = "https://striveschool-api.herokuapp.com/api/profile/me";
   
 
   useEffect(()=>{
-    profileExperienceFetch(profileId2); //cambiare a profileId quando sia colegato a useParams!
+    profileExperienceFetch(urlMyProfile); 
     profileListTest() //solo per vedere la lista
 
   },[])
 
   function profileListTest(){
-    fetch(urlProfile,{
+    fetch("https://striveschool-api.herokuapp.com/api/profile/",{
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -56,9 +47,9 @@ export const MainProfileComponent = () => {
 
   
 
-  function profileExperienceFetch(profileId){
+  function profileExperienceFetch(urlProfile){
 
-    fetch(urlProfile + profileId,{
+    fetch(urlProfile,{
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -72,7 +63,7 @@ export const MainProfileComponent = () => {
       
     
 
-      return fetch(`https://striveschool-api.herokuapp.com/api/profile/${profileId}/experiences`,{
+      return fetch(`https://striveschool-api.herokuapp.com/api/profile/${data._id}/experiences`,{
          method: 'GET',
          headers:{
            'Authorization': `Bearer ${token}`,

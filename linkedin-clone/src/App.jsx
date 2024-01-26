@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage';
 import ProfilePage from './pages/ProfilePage';
 import JobPage from './pages/JobPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { MyProfileComponent } from './components/MyProfileComponent';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='Myprofile' element={<ProfilePage/>} /> 
           <Route path='/profilepage' element={<ProfilePage />} />
           <Route path='/jobpage' element={<JobPage />} />
           <Route path='*' element={<NotFoundPage />} />
