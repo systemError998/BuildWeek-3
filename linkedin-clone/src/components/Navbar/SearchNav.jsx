@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import { IoSearch } from "react-icons/io5";
 import Logo from '../../assets/logo.png';
-import { Typeahead } from 'react-bootstrap-typeahead';
+import { Typeahead } from 'react-bootstrap-typeahead'
 import { useState } from 'react';
 import axios from 'axios';
 
