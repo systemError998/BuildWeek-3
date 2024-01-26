@@ -1,12 +1,22 @@
 import React, { useEffect , useState } from 'react'
-
+import { fetchNavUser } from '../../redux/slice/NavUserSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import { BtnAltroComponent } from './BtnAltroComponent';
-import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
-import { BtnDisponibileComponent } from './BtnDisponibileComponent';
+import { BtnAltroComponent } from '../BtnAltroComponent';
+import { BtnAggiungiSezioneComponent } from '../BtnAggiungiSezioneComponent';
+import { BtnDisponibileComponent } from '../BtnDisponibileComponent';
 
 export default function NavbarScroll() {
+
+    const dispatch = useDispatch();
+
+    const userFetch = useSelector((state) => state.navUser.navUser);
+    console.log(userFetch.bio);
+
+    useEffect(() => {
+        dispatch(fetchNavUser());
+    }, []);
 
     const [hideNavbar, setHideNavbar] = useState(false);
 
@@ -40,11 +50,11 @@ export default function NavbarScroll() {
                         <div>
                         <Image
                             style={{ width: "50px", height: "50px" }} 
-                            src="https://static.sky.it/editorialimages/bae3cba5386cff00452fb02dbea26e0e6c5ea61c/static/contentimages/original/sezioni/cinema/serie-tv/2019/10/24/BoJack-Horseman.jpg" roundedCircle />
+                            src={userFetch.image} roundedCircle />
                         </div>
                         <div className='ms-3 profileNavbarScroll mt-2'>
-                            <p id='logo'>Anna</p>
-                            <p>BoJack Horseman</p>
+                            <p id='logo'>{userFetch.name} {userFetch.surname}</p>
+                            <p>{userFetch.bio}</p>
                         </div>
                     </div>
                     <div>

@@ -1,22 +1,25 @@
 import React from 'react'
-import { Navbar, Button, Nav, Form, Dropdown, DropdownItem } from 'react-bootstrap';
+import { Navbar, Nav, Dropdown, DropdownItem, Container } from 'react-bootstrap';
 import { TiHome } from "react-icons/ti";
 import { IoPeople } from "react-icons/io5";
 import { MdOutlineWork } from "react-icons/md";
 import { AiFillMessage } from "react-icons/ai";
 import { FaBell } from "react-icons/fa";
 import { CgMenuGridR } from "react-icons/cg";
-import { IoSearch } from "react-icons/io5";
-import Logo from '../assets/logo.png';
 import { useState, useEffect, useRef } from 'react';
 import { FcVip } from "react-icons/fc";
-
-import NavbarScroll from './NavbarScroll';
-import OffCanvNavbar from './OffCanvNavbar';
+import { fetchNavUser } from '../redux/slice/NavUserSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import SearchNav from './Navbar/SearchNav';
+import { Link } from 'react-router-dom';
+import NavbarScroll from './Navbar/NavbarScroll';
+import OffCanvNavbar from './Navbar/OffCanvNavbar';
 
 export default function MyNavbar() {
 
-  /* Sate e Set OffCanvas */
+  const dispatch = useDispatch();
+
+  /* State e Set OffCanvas */
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true); 
   const handleClose = () => setShow(false);
@@ -38,17 +41,26 @@ export default function MyNavbar() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  
+
+  /* Fetch User */
+  const userFetch = useSelector((state) => state.navUser.navUser);
+  console.log(userFetch.bio);
+
+  useEffect(() => {
+    dispatch(fetchNavUser());
+  }, []);
+
+
   return (
-    <div className='sticky-top'>
+    <div className='sticky-top mb-0'>
     <Navbar
     bg="white"
     data-bs-theme="light"
     className='py-0 my-0 border border-bottom-secondary'
     >
-        <div
+        <Container fluid
         className='d-flex justify-content-start align-items-center my-0 py-0'
-        fluid style={{width: '100%', margin: '0 22rem'}}>
+         style={{width: '65%', margin: '0 auto'}}>
           {/*Contenitore della barra di navigazione + menù Navbar*/} 
           <div
           className='d-flex justify-content-between align-items-center my-0 py-0'
@@ -59,26 +71,7 @@ export default function MyNavbar() {
           }}
           >
               {/*Barra di ricerca e logo*/}
-              <div className='d-flex justify-content-between align-items-center my-0 py-0'>
-                <img src={Logo} alt="logo" className='me-2' style={{width: '2rem'}}/>
-                <div
-                className='d-flex justify-content-between align-items-center rounded-1'
-                style={{background: '#EDF3F8',
-                border: 'none',}}>
-                  <IoSearch className='navbarIcon ms-3' />
-                  <Form.Control
-                      type="text"
-                      placeholder= "Cerca"
-                      className="searchNav mr-sm-2"
-                      style={{
-                      background: '#EDF3F8',
-                      border: 'none',
-                      outline: 'none',
-                      boxShadow: 'none',
-                      }}
-                    />
-                </div>
-              </div>
+              <div><SearchNav /></div>
               {/*Voci del menù della Navbar*/}
               <div>
                 <Nav
@@ -86,7 +79,7 @@ export default function MyNavbar() {
                   style={{width: '30rem'}}>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/' className='testoNavbar'>
                         <TiHome className='navbarIcon' />
                         <p className='mb-0'>Home</p>
                       </Nav.Link>
@@ -94,7 +87,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
                         <IoPeople className='navbarIcon' />
                         <p className='mb-0'>Rete</p>
                       </Nav.Link>
@@ -102,7 +95,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/jobpage' className='testoNavbar'>
                         <MdOutlineWork className='navbarIcon' />
                         <p className='mb-0'>Lavoro</p>
                       </Nav.Link>
@@ -110,7 +103,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
                         <AiFillMessage className='navbarIcon' />
                         <p className='mb-0'>Messaggistica</p>
                       </Nav.Link>
@@ -118,17 +111,15 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
                         <FaBell className='navbarIcon' />
                         <p className='mb-0'>Notifiche</p>
                       </Nav.Link>
                     </div>
                   </div>
-                  {/*SOTTO: Profilo personale - bisogna aggiunger un dropdown e
-                  l'immagine del profilo che si aggiorna dinamicamente*/}
                   <div className='text-center'>
                     <div className= 'm-0 p-0'>
-                      <img onClick={handleOpen} as={Nav.Link} src={Logo} alt="Profile Picture" style={{height: '1.7rem', width: '1.7rem', borderRadius: '50%', margin: '0', padding: '0'}}/>
+                      <img onClick={handleOpen} as={Nav.Link} src={userFetch.image} alt="Profile Picture" style={{height: '1.7rem', width: '1.7rem', borderRadius: '50%', margin: '0', padding: '0'}}/>
                       <Dropdown show={open} onClick={handleOpen} ref={ref}>
                         <Dropdown.Toggle as={Nav.Link} className='testoNavbar m-0 p-0'>
                           <span>Tu</span>
@@ -137,11 +128,11 @@ export default function MyNavbar() {
                           <DropdownItem className=' pb-0'>
                             <div className='d-flex justify-content-between align-items-top' style={{width: '12rem'}}>
                               <div className='me-2'>
-                                <img src={Logo} alt="Profile Picture" style={{height: '3rem', width: '3rem', borderRadius: '50%', margin: '0', padding: '0'}} />
+                                <img src={userFetch.image} alt="Profile Picture" style={{height: '3rem', width: '3rem', borderRadius: '50%', margin: '0', padding: '0'}} />
                               </div>
                               <div className='d-flex flex-column flex-wrap text-wrap'>
-                                <p className='nameSectionDropdown mb-1 fw-semibold' style={{color:'#3B3B3B'}}>Nome Cognome</p>
-                                <p className='text-break word-wrap'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                                <p className='nameSectionDropdown mb-1 fw-semibold' style={{color:'#3B3B3B'}}>{userFetch && userFetch.name} {userFetch && userFetch.surname}</p>
+                                <p className='text-break word-wrap'>{userFetch && userFetch.bio}</p>
                               </div>
                             </div>
                             <div className='dropdownButton' style={{width: '100%'}}>
@@ -198,7 +189,6 @@ export default function MyNavbar() {
           <div
           className='d-flex align-items-center justify-content-baseline ps-2'
           >
-            {/*SOTTO: Bisogna aggiungere un Offcanvas per la voce seguente (vedi sito originale)*/}
             <div className='text-center' style={{width: '8rem'}} >
               <div>
                 <Nav.Link className='testoNavbar' onClick={handleShow}>   {/* onClick={handleShow} */}
@@ -214,7 +204,7 @@ export default function MyNavbar() {
                 </Nav.Link>
             </div>
           </div>
-        </div>
+        </Container>
     </Navbar>
     <NavbarScroll />
     </div>
