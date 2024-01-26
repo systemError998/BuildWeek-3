@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ProfileInfoComponent } from './ProfileInfoComponent';
+import ProfileDescriptionComponent from './ProfileDescriptionComponent';
 import ProfileAnalisiComponent from './ProfileAnalisiComponent'
 import ProfileRisorseComponent from './ProfileRisorseComponent'
+import ProfileAttivitaComponent from './ProfileAttivitaComponent';
 import ProfileEsperienzaComponent from './ProfileEsperienzaComponent';
+
+
 
 export const MainProfileComponent = () => {
 
@@ -57,8 +61,10 @@ export const MainProfileComponent = () => {
   return (
     <>
       <ProfileInfoComponent profile={profile} />
+      <ProfileDescriptionComponent />
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
+      <ProfileAttivitaComponent />
       <ProfileEsperienzaComponent experience={experience} />
     </>
   );
