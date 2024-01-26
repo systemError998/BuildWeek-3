@@ -93,3 +93,19 @@ background: lightgray!important;
     color: rgb(100, 98, 98);
     text-decoration: none;
 }
+
+
+/* OffCanvas Style */
+.fontTitleOffcanvas {
+    color: grey;
+    font-size: 0.75rem;
+}
+
+.divListOffcanvas{
+    line-height: 1rem;
+    padding-left: 0.5rem;
+}
+.listaOffcanvas {
+    font-weight: 600;
+    list-style: none;
+}
