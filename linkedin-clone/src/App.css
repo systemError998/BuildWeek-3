@@ -111,3 +111,24 @@ background: lightgray!important;
     font-weight: 600;
     list-style: none;
 }
+
+/* Inizio Homepage CSS */
+
+.imgLeftSideBar {
+    height: 4em;
+    width: 100%;
+    object-fit: cover;
+}
+
+.imgRightSideBar {
+    object-fit: cover;
+    height: 13em;
+}
+
+.listLeftSideBar {
+    list-style: none;
+}
+
+#collapse-right {
+    position: relative;
+  }
