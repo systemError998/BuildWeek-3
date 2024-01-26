@@ -7,7 +7,7 @@ export default function ProfileFormazioneComponent() {
             <Card.Body>
 
                 <div className='d-flex justify-content-between align-items-baseline'>
-                    <h2 className='fs-4'>Formazione</h2>
+                    <p className='fs-4 fw-semibold m-0'>Formazione</p>
                     <div>
                         <Button
                             variant="outline-secondary"
@@ -28,25 +28,25 @@ export default function ProfileFormazioneComponent() {
                         style={{ width: '50px', height: '50px' }}
                         className='d-flex justify-content-center align-items-center'
                     >
-                        <i class="bi bi-buildings fs-2"></i>
+                        <i className="bi bi-buildings fs-2"></i>
                     </div>
                     <div>
-                        <h4 className='fs-5 '>
+                        <p className='fs-5 m-0 fw-semibold'>
                             Istituto
-                        </h4>
-                        <h5 className='fs-6 fw-normal'>
+                        </p>
+                        <p className='fs-6 m-0'>
                             Titolo di studio
-                        </h5>
-                        <h6 className='fs-6 fw-normal text-secondary'>
+                        </p>
+                        <p className='m-0 text-secondary'>
                             Periodo &#183; Città, Regione, Paese
-                        </h6>
-                        <p className='fs-6 fw-normal'>
+                        </p>
+                        <p className='m-0'>
                             Descrizione
                         </p>
-                        <h6 className='fs-6'>
-                            <i class="bi bi-gem"></i>
+                        <p className='m-0'>
+                            <i className="bi bi-gem"></i>
                             <span> Competenze</span>
-                        </h6>
+                        </p>
                     </div>
                 </div>
             </Card.Body>

@@ -7,7 +7,7 @@ export default function ProfileCorsiComponent() {
             <Card.Body>
 
                 <div className='d-flex justify-content-between align-items-baseline'>
-                    <h2 className='fs-4'>Corsi</h2>
+                    <p className='fs-4 m-0 fw-semibold'>Corsi</p>
                     <div>
                         <Button
                             variant="outline-secondary"
@@ -25,13 +25,13 @@ export default function ProfileCorsiComponent() {
                 </div>
 
                 <div className='mt-3'>
-                    <h4 className='fs-5'>
+                    <p className='fw-semibold'>
                         Corso sicurezza sul lavoro
-                    </h4>
+                    </p>
                     <hr />
-                    <h4 className='fs-5'>
+                    <p className='fw-semibold'>
                         Corso informatica base
-                    </h4>
+                    </p>
                 </div>
 
             </Card.Body>

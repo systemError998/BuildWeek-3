@@ -7,7 +7,7 @@ export default function ProfileCompetenzeComponent() {
             <Card.Body>
 
                 <div className='d-flex justify-content-between align-items-baseline'>
-                    <h2 className='fs-4'>Competenze</h2>
+                    <p className='fs-4 fw-semibold m-0'>Competenze</p>
                     <div>
                         <Button
                             variant="outline-secondary"

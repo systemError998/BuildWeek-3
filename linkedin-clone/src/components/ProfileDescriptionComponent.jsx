@@ -5,7 +5,7 @@ export default function ProfileDescriptionComponent({bio}) {
         <Card className="my-2">
             <Card.Body>
                 <Card.Text>
-                    <h2 className='fs-4 mb-0'>Informazioni</h2>
+                    <p className='fs-4 fw-semibold m-0'>Informazioni</p>
                     <div className='mt-2'>
                         <p className='m-0'>
                             {bio}
