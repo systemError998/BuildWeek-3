@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button, Card, Nav } from 'react-bootstrap';
-import EpicodeLogo from '../assets/img/epicodeschool_logo.jpeg'
+import { Button, Card, Nav, Row, Col } from 'react-bootstrap';
+import LogoEpicode from '../assets/img/Logo_Epicode.jpeg'
+import LogoIfoa from '../assets/img/Logo_IFOA.jpeg'
 
 export default function ProfileInteressiComponent() {
     return (
@@ -16,21 +17,45 @@ export default function ProfileInteressiComponent() {
                     </Nav.Item>
                 </Nav>
             </Card.Header>
-            <Card.Body className='d-flex gap-2'>
-                <img src={EpicodeLogo} style={{ width: '50px', height: '50px' }} />
-                <div>
-                    <Card.Title>EPICODE</Card.Title>
-                    <Card.Text>
-                        12.934 follower
-                    </Card.Text>
-                    <Button
-                        variant='outline-secondary'
-                        className='rounded-pill border-2 fw-semibold'
-                    >
-                        <i class="bi bi-check2"></i>
-                        <span> Già segui</span>
-                    </Button>
-                </div>
+            <Card.Body>
+                <Row>
+                    <Col>
+                        <div className='d-flex gap-2'>
+                            <img src={LogoEpicode} style={{ width: '50px', height: '50px' }} />
+                            <div>
+                                <Card.Title>EPICODE</Card.Title>
+                                <Card.Text>
+                                    12.934 follower
+                                </Card.Text>
+                                <Button
+                                    variant='outline-secondary'
+                                    className='rounded-pill border-2 fw-semibold'
+                                >
+                                    <i class="bi bi-check2"></i>
+                                    <span> Già segui</span>
+                                </Button>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className='d-flex gap-2'>
+                            <img src={LogoIfoa} style={{ width: '50px', height: '50px' }} />
+                            <div>
+                                <Card.Title>IFOA</Card.Title>
+                                <Card.Text>
+                                    6.221 follower
+                                </Card.Text>
+                                <Button
+                                    variant='outline-secondary'
+                                    className='rounded-pill border-2 fw-semibold'
+                                >
+                                    <i class="bi bi-check2"></i>
+                                    <span> Già segui</span>
+                                </Button>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
             </Card.Body>
             <Card.Footer className="text-muted fw-semibold text-center bg-white">
                 <span>Mostra tutti gli interessi </span>
