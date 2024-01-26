@@ -2,6 +2,9 @@ import React, { useEffect , useState } from 'react'
 
 import { Navbar } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
+import { BtnAltroComponent } from './BtnAltroComponent';
+import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
+import { BtnDisponibileComponent } from './BtnDisponibileComponent';
 
 export default function NavbarScroll() {
 
@@ -45,9 +48,9 @@ export default function NavbarScroll() {
                         </div>
                     </div>
                     <div>
-                        <button>ciao</button>
-                        <button>ciao</button>
-                        <button>ciao</button>
+                        <BtnAltroComponent />
+                        <BtnAggiungiSezioneComponent />
+                        <BtnDisponibileComponent />
                     </div>
                 </div>       
             </Navbar>
