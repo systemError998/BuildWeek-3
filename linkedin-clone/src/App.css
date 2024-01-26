@@ -1,3 +1,9 @@
+
+/* Navbar Scroll Style */
+.profileNavbarScroll {
+    line-height: 0.3rem;
+}
+
 /* Sezione RightBar */
 .hoverBtn:hover {
 background: lightgray!important;
@@ -20,15 +26,16 @@ background: lightgray!important;
 /* Fine Sezione RightBar */
 
 /*SEZIONE NAVBAR*/
+.testoNavbar, .linkNavbar, p, span, a {
+    font-size: 0.8rem !important;
+}
 
 .testoNavbar {
-    font-size: 0.9rem !important;
     color: #666666 !important;
     font-weight: 400 !important;
 }
 
 .linkNavbar{
-    font-size: 0.9rem !important;
     color: #915907 !important;
     font-weight: 400 !important;
     text-decoration: underline !important;
@@ -39,10 +46,40 @@ background: lightgray!important;
 }
 
 .navbarIcon {
-    width: 1.5rem;
+    width: 1.7rem;
     height: auto;
 }
 
+.dropdownButton {
+    color: #136BC4 !important;
+    border: 1px solid #136BC4 !important;
+    text-align: center !important;
+    width: 100% !important;
+    border-radius: 5rem !important;
+    height: 1.5rem !important;
+}
+
+.dropdownButton:hover {
+    background-color: hsl(212, 100%, 96%) !important;
+    border: 2px solid #136BC4 !important;
+    height: 1.5rem !important;
+}
+
+.nameSectionDropdown {
+    font-size: 1rem !important;
+}
+
+.navbarList {
+    list-style-type: none !important;
+}
+
+.dropdownOption {
+    color: #999999 !important;
+}
+
+.dropdownOption:hover {
+    text-decoration: underline;
+}
 /*FINE NAVBAR*/
 
 /* Footer Style */
@@ -55,4 +92,22 @@ background: lightgray!important;
 .ulFooter li a {
     color: rgb(100, 98, 98);
     text-decoration: none;
+}
+
+}
+
+
+/* OffCanvas Style */
+.fontTitleOffcanvas {
+    color: grey;
+    font-size: 0.75rem;
+}
+
+.divListOffcanvas{
+    line-height: 1rem;
+    padding-left: 0.5rem;
+}
+.listaOffcanvas {
+    font-weight: 600;
+    list-style: none;
 }
