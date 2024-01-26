@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Dropdown, DropdownItem } from 'react-bootstrap';
+import { Navbar, Nav, Dropdown, DropdownItem, Container } from 'react-bootstrap';
 import { TiHome } from "react-icons/ti";
 import { IoPeople } from "react-icons/io5";
 import { MdOutlineWork } from "react-icons/md";
@@ -11,7 +11,7 @@ import { FcVip } from "react-icons/fc";
 import { fetchNavUser } from '../redux/slice/NavUserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchNav from './Navbar/SearchNav';
-
+import { Link } from 'react-router-dom';
 import NavbarScroll from './Navbar/NavbarScroll';
 import OffCanvNavbar from './Navbar/OffCanvNavbar';
 
@@ -52,15 +52,15 @@ export default function MyNavbar() {
 
 
   return (
-    <div className='sticky-top'>
+    <div className='sticky-top mb-0'>
     <Navbar
     bg="white"
     data-bs-theme="light"
     className='py-0 my-0 border border-bottom-secondary'
     >
-        <div
+        <Container fluid
         className='d-flex justify-content-start align-items-center my-0 py-0'
-        fluid style={{margin: '0 10%'}}>
+         style={{width: '65%', margin: '0 auto'}}>
           {/*Contenitore della barra di navigazione + menù Navbar*/} 
           <div
           className='d-flex justify-content-between align-items-center my-0 py-0'
@@ -79,7 +79,7 @@ export default function MyNavbar() {
                   style={{width: '30rem'}}>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/' className='testoNavbar'>
                         <TiHome className='navbarIcon' />
                         <p className='mb-0'>Home</p>
                       </Nav.Link>
@@ -87,7 +87,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
                         <IoPeople className='navbarIcon' />
                         <p className='mb-0'>Rete</p>
                       </Nav.Link>
@@ -95,7 +95,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/jobpage' className='testoNavbar'>
                         <MdOutlineWork className='navbarIcon' />
                         <p className='mb-0'>Lavoro</p>
                       </Nav.Link>
@@ -103,7 +103,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
                         <AiFillMessage className='navbarIcon' />
                         <p className='mb-0'>Messaggistica</p>
                       </Nav.Link>
@@ -111,7 +111,7 @@ export default function MyNavbar() {
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
-                      <Nav.Link className='testoNavbar'>
+                      <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
                         <FaBell className='navbarIcon' />
                         <p className='mb-0'>Notifiche</p>
                       </Nav.Link>
@@ -204,7 +204,7 @@ export default function MyNavbar() {
                 </Nav.Link>
             </div>
           </div>
-        </div>
+        </Container>
     </Navbar>
     <NavbarScroll />
     </div>
