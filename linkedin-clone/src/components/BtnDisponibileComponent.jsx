@@ -5,7 +5,7 @@ export const BtnDisponibileComponent = () => {
     return (
         <Button
             variant="primary"
-            className='rounded-pill fw-semibold'
+            className='rounded-pill fw-semibold border-2'
         >
             Disponibile per
         </Button>

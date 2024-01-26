@@ -29,11 +29,11 @@ export const ProfileInfoComponent = ({ profile }) => {
                 />
             </div>
             <Card.Body >
-                <div className='position-relative'>
+                <div className='d-flex justify-content-between align-items-baseline'>
                     <h2 className='mt-5 fs-3'>{profile.name} {profile.surname}</h2>
                     <Button
                         variant="outline-secondary"
-                        className='position-absolute top-0 end-0 rounded-circle mt-2 me-2'
+                        className='rounded-circle border-0'
                     >
                         <i className="bi bi-pencil"></i>
                     </Button>
