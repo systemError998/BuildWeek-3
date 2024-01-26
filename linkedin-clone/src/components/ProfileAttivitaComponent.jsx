@@ -41,46 +41,14 @@ export default function ProfileAttivitaComponent() {
                             <Modal.Body>
                                 La tua attività recente mostrerà solo i contenuti degli ultimi 360 giorni.
                                 <Form className='mt-3'>
-                                    <Form.Check
-                                        type='radio'
-                                        label="Post"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Commenti"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Video"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Immagini"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Articoli"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Newsletter"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Eventi"
-                                        name="content-type"
-                                    />
-                                    <Form.Check
-                                        type='radio'
-                                        label="Documenti"
-                                        name="content-type"
-                                    />
+                                    <Form.Check type='radio' label="Post" name="content-type" />
+                                    <Form.Check type='radio' label="Commenti" name="content-type" />
+                                    <Form.Check type='radio' label="Video" name="content-type" />
+                                    <Form.Check type='radio' label="Immagini" name="content-type" />
+                                    <Form.Check type='radio' label="Articoli" name="content-type" />
+                                    <Form.Check type='radio' label="Newsletter" name="content-type" />
+                                    <Form.Check type='radio' label="Eventi" name="content-type" />
+                                    <Form.Check type='radio' label="Documenti" name="content-type" />
                                 </Form>
                             </Modal.Body>
                             <Modal.Footer>
@@ -93,12 +61,8 @@ export default function ProfileAttivitaComponent() {
                 </div>
                 <div className='d-flex gap-2 mt-2'>
                     <div>
-                        <p className='m-0 fw-semibold'>
-                            Non hai ancora pubblicato nulla
-                        </p>
-                        <p className='m-0'>
-                            I post che condividi appariranno qui
-                        </p>
+                        <p className='m-0 fw-semibold'>Non hai ancora pubblicato nulla</p>
+                        <p className='m-0'>I post che condividi appariranno qui</p>
                     </div>
                 </div>
             </Card.Body>
