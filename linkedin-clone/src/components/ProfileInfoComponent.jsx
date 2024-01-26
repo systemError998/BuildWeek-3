@@ -1,5 +1,5 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Card, Button, Modal, Form } from 'react-bootstrap';
 import '../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
 import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
@@ -7,6 +7,12 @@ import { BtnAltroComponent } from './BtnAltroComponent'
 import Banner from '../assets/img/Banner-Profilo-LinkedIn.png'
 
 export const ProfileInfoComponent = ({ profile }) => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <Card className='bg-white w-100'>
             <div className='position-relative mb-3'>
@@ -34,9 +40,222 @@ export const ProfileInfoComponent = ({ profile }) => {
                     <Button
                         variant="outline-secondary"
                         className='rounded-circle border-0'
+                        onClick={handleShow}
                     >
                         <i className="bi bi-pencil"></i>
                     </Button>
+                    <Modal size="lg" show={show} onHide={handleClose} centered>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Modifica presentazione</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body
+                            className="overflow-y-scroll"
+                            style={{ height: "500px" }}
+                        >
+                            <Form className="container ">
+                                <p class="form-text negative-margin">
+                                    * Indica che è obbligatorio
+                                </p>
+                                <Form.Group
+                                    className="mb-3"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 mb-0 form-text "
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Nome*
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+                                <Form.Group
+                                    className="mb-3 mt-3"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Cognome*
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+                                <Form.Group
+                                    className="mb-3"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Nome aggiuntivo
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+                                <p className="form-text pt-4 mb-1">Pronuncia del nome</p>
+                                <p className="mb-1">
+                                    Può essere aggiunta solo usando la nostra app per dispositivi
+                                    mobili
+                                </p>
+                                <Form.Group
+                                    className="mb-3"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Inserisci pronomi personalizzati
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                    <div id="emailHelp" class="form-text">
+                                        Indica i pronomi di genere che vuoi che gli altri usino per
+                                        riferirsi a te.
+                                    </div>
+                                </Form.Group>
+                                <p>
+                                    Scopri di più sui{" "}
+                                    <a href="#" style={{ textDecoration: "none" }}>
+                                        pronomi di genere.
+                                    </a>
+                                </p>
+                                <Form.Group
+                                    className="mb-3"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Sommario*
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+                                <h4 className="pt-3" style={{ fontSize: "1.4em" }}>
+                                    Posizione attuale
+                                </h4>
+                                <button
+                                    type="button"
+                                    style={{ fontWeight: "600", fontSize: "1.1em" }}
+                                    class="btn text-primary mt-2"
+                                >
+                                    <i class="bi bi-plus"></i>Aggiungi una nuova posizione
+                                    lavorativa
+                                </button>
+                                <Form.Group
+                                    className="mb-2 mt-2"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Settore*
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Es.: Commercio al dettaglio"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+                                <p style={{ fontSize: "1.2em" }} className="form-text">
+                                    Scopri di più sulle{" "}
+                                    <a
+                                        href="https://www.esempio.com"
+                                        style={{ textDecoration: "none" }}
+                                    >
+                                        opzioni relative al settore
+                                    </a>
+                                </p>
+                                <h4 className="mb-3">Formazione</h4>
+                                <button
+                                    type="button"
+                                    style={{ fontWeight: "600", fontSize: "1.1em" }}
+                                    className="btn text-primary "
+                                >
+                                    <i class="bi bi-plus"></i>Aggiungi un nuovo grado di
+                                    formazione
+                                </button>
+                                <h4 className="mt-5">Località</h4>
+                                <Form.Group
+                                    className="mb-3 negative-margin"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        Paese/Area geografica*
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+                                <Form.Group
+                                    className="mb-3 mt-3"
+                                    controlId="exampleForm.ControlInput1"
+                                >
+                                    <Form.Label
+                                        className="mt-3 form-text mb-0"
+                                        style={{ fontSize: "1.0em" }}
+                                    >
+                                        CAP
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="--"
+                                        autoFocus
+                                        style={{ borderColor: "black" }}
+                                    />
+                                </Form.Group>
+
+                                <p className="pt-4 mb-0 pb-0" style={{ fontSize: "1.4em" }}>
+                                    Informazioni di contatto
+                                </p>
+                                <p className="pb-2">
+                                    Aggiungi o modifica il tuo profilo URL, indirizzo email e
+                                    altro
+                                </p>
+                                <button type="button" class="btn text-primary">
+                                    Modifica le informazioni di contatto
+                                </button>
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="primary" onClick={handleClose}>
+                                Salva
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 </div>
                 <Card.Text>
                     <p className='m-0'>{profile.title}</p>

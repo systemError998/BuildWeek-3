@@ -10,3 +10,7 @@
     background-color: #6c757d !important;
     color: white !important;
 }
+
+.negative-margin {
+    margin-top: -10px !important;
+}

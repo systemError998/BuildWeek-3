@@ -23,6 +23,7 @@ export default function ProfileAttivitaComponent() {
                             className='rounded-pill border-2 fw-semibold'>
                             Crea un post
                         </Button>
+
                         <Button
                             variant="outline-secondary"
                             className='rounded-circle ms-2 border-0'
