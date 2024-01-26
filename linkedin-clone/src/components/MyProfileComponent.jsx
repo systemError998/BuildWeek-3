@@ -5,6 +5,13 @@ import ProfileAnalisiComponent from './ProfileAnalisiComponent'
 import ProfileRisorseComponent from './ProfileRisorseComponent'
 import ProfileAttivitaComponent from './ProfileAttivitaComponent';
 import ProfileEsperienzaComponent from './ProfileEsperienzaComponent';
+import ProfileFormazioneComponent from './ProfileFormazioneComponent';
+import ProfileCompetenzeComponent from './ProfileCompetenzeComponent';
+import ProfileCorsiComponent from './ProfileCorsiComponent';
+import ProfileLingueComponent from './ProfileLingueComponent';
+import ProfileInteressiComponent from './ProfileInteressiComponent';
+
+
 
 
 export const MyProfileComponent = () => {
@@ -88,11 +95,16 @@ export const MyProfileComponent = () => {
   return (
     <>
       <ProfileInfoComponent profile={profile} />
-      <ProfileDescriptionComponent />
+      <ProfileDescriptionComponent bio={profile.bio} />
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
       <ProfileAttivitaComponent />
       <ProfileEsperienzaComponent experience={experience} />
+      <ProfileFormazioneComponent />
+      <ProfileCompetenzeComponent />
+      <ProfileCorsiComponent />
+      <ProfileLingueComponent />
+      <ProfileInteressiComponent />
     </>
   );
 }

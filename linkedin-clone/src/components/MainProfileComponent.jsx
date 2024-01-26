@@ -9,12 +9,20 @@ import ProfileFormazioneComponent from './ProfileFormazioneComponent';
 import ProfileCompetenzeComponent from './ProfileCompetenzeComponent';
 import ProfileCorsiComponent from './ProfileCorsiComponent';
 import ProfileLingueComponent from './ProfileLingueComponent';
-import ProfileInteressiComponent from './ProfileInteressiComponent';// ID di prova:
+import ProfileInteressiComponent from './ProfileInteressiComponent';
+import { useParams } from 'react-router-dom';
 
-// nessuna esperienza : "6551f702c55e7e0018f83c10"
-// con esperienza: "6551e7bbc55e7e0018f83bfb"
+//IMPORTANTE
+//PER LA SIDEBAR
 
-//EDIT ID IN profileId2 (riga 26 aprox.)
+// Collegare questa pagina con una cosa simile a questo:
+// {profiles.map((profile) => (
+//     <li key={profile.id}>
+//       {/* Link to MainProfileComponent dopo il controlo di profileId in ProfilePage */}
+//       <Link to={`/profilepage/${profile.id}`}>{profile.name}</Link>
+//     </li>
+//   ))}
+
 
 export const MainProfileComponent = () => {
 
@@ -24,15 +32,15 @@ export const MainProfileComponent = () => {
   const[experience, setExperience] = useState([]);
 
 
-  // const { profileId } = useParams();  USARE QUANDO SARÀ COLEGATO ALLA SIDEBAR
+  const { profileId } = useParams();  //USARE QUANDO SARÀ COLEGATO ALLA SIDEBAR
 
-  const profileId2 = "6551e7bbc55e7e0018f83bfb"  ;
+  // const profileId2 = "6551e7bbc55e7e0018f83bfb"  ;
 
   const urlProfile = "https://striveschool-api.herokuapp.com/api/profile/";
   
 
   useEffect(()=>{
-    profileExperienceFetch(profileId2); //cambiare a profileId quando sia colegato a useParams!
+    profileExperienceFetch(profileId); //cambiare a profileId quando sia colegato a useParams!
     profileListTest() //solo per vedere la lista
 
   },[])
@@ -100,7 +108,7 @@ export const MainProfileComponent = () => {
   return (
     <>
       <ProfileInfoComponent profile={profile} />
-      <ProfileDescriptionComponent />
+      <ProfileDescriptionComponent bio={profile.bio} />
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
       <ProfileAttivitaComponent />

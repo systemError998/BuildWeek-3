@@ -2,6 +2,8 @@ import { Button, Card } from 'react-bootstrap';
 import EsperienzaDettaglioComponent from './EsperienzaDettaglioComponent'
 
 export default function ProfileEsperienzaComponent({ experience }) {
+
+    
     return (
         <Card className='my-2 w-100'>
             <Card.Body>
