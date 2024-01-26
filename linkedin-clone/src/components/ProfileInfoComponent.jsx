@@ -10,12 +10,17 @@ export const ProfileInfoComponent = ({ profile }) => {
     return (
         <Card className='bg-white w-100'>
             <div className='position-relative mb-3'>
-                <Card.Img
-                    variant="top"
-                    src={Banner}
-                    style={{ height: '250px' }}
-                    alt="banner-img"
-                />
+                <div className='position-relative'>
+                    <Card.Img
+                        variant="top"
+                        src={Banner}
+                        style={{ height: '250px' }}
+                        alt="banner-img"
+                    />
+                    <Button variant="light" className='position-absolute end-0 rounded-circle m-3'>
+                        <i className="bi bi-camera-fill text-primary"></i>
+                    </Button>
+                </div>
                 <img
                     src={profile.image}
                     alt="profile-img"
