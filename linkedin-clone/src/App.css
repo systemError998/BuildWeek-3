@@ -1,3 +1,9 @@
+
+/* Navbar Scroll Style */
+.profileNavbarScroll {
+    line-height: 0.3rem;
+}
+
 /* Sezione RightBar */
 .hoverBtn:hover {
 background: lightgray!important;

@@ -1,4 +1,9 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from './components/Navbar';
+import NavbarScroll from './components/NavbarScroll';
+
 import { BrowserRouter , Routes , Route } from "react-router-dom";
 import MyNavbar from './components/Navbar';
 import Homepage from './pages/Homepage';
@@ -11,6 +16,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar />
+        <NavbarScroll />
         <MyNavbar />
         <Routes>
           <Route path='/' element={<Homepage />} />
