@@ -10,14 +10,15 @@ const navbarScrollSlice = createSlice({
     reducers: {
         showNavbar: (state, action) => {
             console.log(action);
-            return { ...state, isElementVisible: true }
+            return { ...state, navbarVisibile: true }
         },
         hideNavbar : (state, action) => {
             console.log(action);
-            return { ...state, isElementVisible: true }
+            return { ...state, navbarVisibile: false }
         }
     }
 })
 
 const {reducer, actions} = navbarScrollSlice
+export const { showNavbar , hideNavbar } = actions
 export default reducer
