@@ -1,8 +1,25 @@
-import React, { useState } from 'react';
-import { Button, Card, Modal } from 'react-bootstrap';
-import ModalComp from './ModalComp';
+import React, { useEffect } from 'react';
+import { Button, Card } from 'react-bootstrap';
+import ModalComp from './Sidebar/ModalComp'
+import {getSidebarSrc} from '../redux/slice/SidebarSlice';
+import {useSelector, useDispatch} from 'react-redux';
+import SidebarProfiles from './Sidebar/SidebarProfiles';
+import SidebarConoscenti from './Sidebar/SidebarConoscenti';
+import ModalComp2 from './Sidebar/ModalComp2';
+
+
 
 export const SideBarComponent = () => {
+
+  const dispatch = useDispatch();
+
+  const sidebarUtenti = useSelector(state => state.sidebar.sidebar)
+
+  useEffect(() => {
+    dispatch(getSidebarSrc());
+    }, [dispatch]);
+
+  console.log(sidebarUtenti)
 
   return (
     <>
@@ -24,20 +41,8 @@ export const SideBarComponent = () => {
     <Card style={{ width: '18rem' }} className='mt-2'>
       <Card.Body>
         <Card.Title className='mb-3 fs-6 fw-bold'>Altri profili consultati</Card.Title>
-        <div class="d-flex">
-        <img class='imgCircle' src="https://img.freepik.com/free-photo/portrait-beautiful-young-woman-standing-grey-wall_231208-10760.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1706054400&semt=sph" />
-          <div class="d-flex flex-column ms-2 w-75">
-            <Card.Text className='fw-bold my-0'>
-              Nome Profilo
-            </Card.Text>
-            <Card.Text class="align-self-start w-100 mb-2">
-            Social Media Manager
-            </Card.Text>
-            <Button variant="outline-dark" className='rndCircle w-75'><i class="bi bi-person-plus-fill"></i> Collegati</Button>
-          </div>
-        </div>
-        <hr />
-      <ModalComp/>
+        <SidebarProfiles utenti={sidebarUtenti} />
+      <ModalComp utenti={sidebarUtenti}/>
       </Card.Body>
     </Card>
 
@@ -45,20 +50,8 @@ export const SideBarComponent = () => {
       <Card.Body>
         <Card.Title className='fs-6 fw-bold mb-1'>Persone che potresti conoscere</Card.Title>
         <p class="text-secondary fs-6">Dal tuo settore</p>
-        <div class="d-flex">
-        <img class='imgCircle' src="https://img.freepik.com/free-photo/portrait-beautiful-young-woman-standing-grey-wall_231208-10760.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1706054400&semt=sph" />
-          <div class="d-flex flex-column ms-2 w-75">
-            <Card.Text className='fw-bold my-0'>
-              Nome Profilo
-            </Card.Text>
-            <Card.Text class="align-self-start w-100 mb-2">
-            Social Media Manager
-            </Card.Text>
-            <Button variant="outline-dark" className='rndCircle w-75'><i class="bi bi-person-plus-fill"></i> Collegati</Button>
-          </div>
-        </div>
-        <hr />
-        <ModalComp/>
+        <SidebarConoscenti utenti={sidebarUtenti}/>
+        <ModalComp2 utenti={sidebarUtenti}/>
       </Card.Body>
     </Card>
 
