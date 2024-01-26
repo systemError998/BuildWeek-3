@@ -24,9 +24,7 @@ export default function ProfileInteressiComponent() {
                             <img src={LogoEpicode} style={{ width: '50px', height: '50px' }} />
                             <div>
                                 <Card.Title>EPICODE</Card.Title>
-                                <Card.Text>
-                                    12.934 follower
-                                </Card.Text>
+                                <Card.Text>12.934 follower</Card.Text>
                                 <Button
                                     variant='outline-secondary'
                                     className='rounded-pill border-2 fw-semibold'
@@ -42,9 +40,7 @@ export default function ProfileInteressiComponent() {
                             <img src={LogoIfoa} style={{ width: '50px', height: '50px' }} />
                             <div>
                                 <Card.Title>IFOA</Card.Title>
-                                <Card.Text>
-                                    6.221 follower
-                                </Card.Text>
+                                <Card.Text>6.221 follower</Card.Text>
                                 <Button
                                     variant='outline-secondary'
                                     className='rounded-pill border-2 fw-semibold'

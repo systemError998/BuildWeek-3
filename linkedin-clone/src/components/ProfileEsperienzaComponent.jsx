@@ -1,26 +1,38 @@
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Dropdown } from 'react-bootstrap';
 import EsperienzaDettaglioComponent from './EsperienzaDettaglioComponent'
+import '../assets/css/MainProfileStyle.css'
+import { MdOutlineWork, MdCalendarMonth } from "react-icons/md";
 
 export default function ProfileEsperienzaComponent({ experience }) {
     return (
         <Card className='my-2 w-100'>
             <Card.Body>
-
                 <div className='d-flex justify-content-between align-items-baseline'>
                     <p className='fs-4 fw-semibold m-0'>Esperienza</p>
-                    <div>
-                    <Button
-                        variant="outline-secondary"
-                        className='rounded-circle border-0'
-                    >
-                        <i className="bi bi-plus"></i>
-                    </Button>
-                    <Button
-                        variant="outline-secondary"
-                        className='rounded-circle ms-2 border-0'
-                    >
-                        <i className="bi bi-pencil"></i>
-                    </Button>
+                    <div className='d-flex'>
+                        <Dropdown>
+                            <Dropdown.Toggle
+                                className='rounded-circle border-0 bg-white text-secondary custom-dropdown-toggle'
+                            >
+                                <i className="bi bi-plus"></i>
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item className='text-secondary'>
+                                    <MdOutlineWork />
+                                    <span> Aggiungi posizione lavorativa</span>
+                                </Dropdown.Item>
+                                <Dropdown.Item className='text-secondary'>
+                                    <MdCalendarMonth />
+                                    <span> Aggiungi pausa lavorativa</span>
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Button
+                            variant="outline-secondary"
+                            className='rounded-circle ms-2 border-0'
+                        >
+                            <i className="bi bi-pencil"></i>
+                        </Button>
                     </div>
                 </div>
 

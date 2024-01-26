@@ -31,7 +31,7 @@ export default function ProfileAttivitaComponent() {
                             <i className="bi bi-pencil"></i>
                         </Button>
 
-                        <Modal show={show} onHide={handleClose}>
+                        <Modal show={show} onHide={handleClose} centered>
                             <Modal.Header closeButton>
                                 <Modal.Title className='fs-5'>
                                     Quali contenuti vuoi mostrare per primi?
