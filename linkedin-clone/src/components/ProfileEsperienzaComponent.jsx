@@ -4,6 +4,8 @@ import '../assets/css/MainProfileStyle.css'
 import { MdOutlineWork, MdCalendarMonth } from "react-icons/md";
 
 export default function ProfileEsperienzaComponent({ experience }) {
+
+    
     return (
         <Card className='my-2 w-100'>
             <Card.Body>
@@ -36,9 +38,18 @@ export default function ProfileEsperienzaComponent({ experience }) {
                     </div>
                 </div>
 
-                {experience.map((exp, key) => (
-                    <EsperienzaDettaglioComponent posizione={exp.role} azienda={exp.company} luogo={exp.area} descrizione={exp.description} />
-                ))}
+                {experience.length > 0  ? (
+                    experience.map((exp, key) => (
+                    <EsperienzaDettaglioComponent 
+                    posizione={exp.role} 
+                    azienda={exp.company} 
+                    luogo={exp.area} 
+                    descrizione={exp.description} 
+                    startDate={exp.startDate}
+                    endDate={exp.endDate}
+                    />))
+                    ) 
+                    : (<h4>Nessuna Esperienza :/ </h4>)}
             </Card.Body>
             <Card.Footer className="text-muted fw-semibold text-center bg-white">
                 <span>Mostra tutte le esperienze </span>

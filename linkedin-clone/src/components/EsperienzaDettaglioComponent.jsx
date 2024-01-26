@@ -1,7 +1,20 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-export default function EsperienzaDettaglioComponent({ posizione, azienda, descrizione, luogo }) {
+export default function EsperienzaDettaglioComponent({ posizione, azienda, descrizione, luogo, startDate, endDate }) {
+
+    const startDateFormatted = new Date(startDate).toLocaleDateString('it-IT', {
+        year: 'numeric',
+        month: 'short',
+      });
+
+    const endDateFormatted = endDate
+      ? new Date(endDate).toLocaleDateString('it-IT', {
+          year: 'numeric',
+          month: 'short',
+        })
+      : 'Presente';
+
     return (
         <>
             <Card.Body className='d-flex gap-2'>
@@ -19,7 +32,7 @@ export default function EsperienzaDettaglioComponent({ posizione, azienda, descr
                         {azienda} &#183; <span>Contratto</span>
                     </p>
                     <p className='m-0 text-secondary'>
-                        Periodo &#183; {luogo} &#183; In sede
+                        {startDateFormatted} - {endDateFormatted} &#183; {luogo} &#183; In sede
                     </p>
                     <p className='m-0'>
                         {descrizione}

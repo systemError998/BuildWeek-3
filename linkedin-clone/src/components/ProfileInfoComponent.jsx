@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState }, { useState } from 'react'
 import { Card, Button, Modal, Form } from 'react-bootstrap';
 import '../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
@@ -12,6 +12,45 @@ export const ProfileInfoComponent = ({ profile }) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+    const [editedData, setEditedData] = useState({
+        name: profile.name,
+        surname: profile.surname,
+        title: profile.title,
+        area: profile.area,
+        bio: profile.bio
+    });
+
+    function editInfo(){
+        fetch('https://striveschool-api.herokuapp.com/api/profile/', {method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editedData),
+      })
+      .then(response => response.json())
+      .then(updatedProfile =>{
+        console.log('Updated profile: ', updatedProfile)
+        //qui si potrebbe chiudere lo stato del eventuale modal
+      })
+      .catch(console.error(error))
+    }
+
+    const handleChange = (e) => {
+        const { fieldName, value } = e.target;
+        setEditedData(prevData => ({ ...prevData, [fieldName]: value }));
+      };
+
+        //INSERIRE TIPO 
+        //value={editedData.name}
+        //value={editedData.surname}
+        //value={editedData.title}
+         //value={editedData.area}
+         //value={editedData.bio}
+        //Form.control: onChange={handleChange}
+        //Button : onClick={handleEdit}
 
     return (
         <Card className='bg-white w-100'>
