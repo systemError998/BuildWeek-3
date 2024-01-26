@@ -10,20 +10,11 @@ import { HiUserGroup } from "react-icons/hi";
 import { ImCheckmark } from "react-icons/im";
 import { FaPlus } from "react-icons/fa";
 
-export default function OffCanvNavbar({ name, ...props }) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+export default function OffCanvNavbar({ name , ...props }) {
 
   return (
     <>
-      {/* BOTTONE DA APPLICARE SU NAVBAR */}
-      <Button variant="primary" onClick={handleShow} className="me-2">
-        {name}
-      </Button>
-
-      <Offcanvas show={show} onHide={handleClose} placement='end' {...props}> {/* Placemennt start, end , top, bottom per far comparire l'offcanvas  */}
+      <Offcanvas placement='end' {...props}> {/* Placemennt start, end , top, bottom per far comparire l'offcanvas  */}
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Per le aziende</Offcanvas.Title>
         </Offcanvas.Header>

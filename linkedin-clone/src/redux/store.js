@@ -1,10 +1,14 @@
-import {configureStore} from '@reduxjs/toolkit';
-import SidebarSliceReducer from './slice/SidebarSlice'
-import navbarScrollReducer from './slice/NavbarScrollSlice'
+
+import {configureStore} from '@reduxjs/toolkit'
 
 export const store = configureStore({
     reducer : {
-        navbarScroll: navbarScrollReducer,
+        
+import {configureStore} from '@reduxjs/toolkit';
+import SidebarSliceReducer from './slice/SidebarSlice'
+
+export const store = configureStore({
+    reducer : {
         sidebar: SidebarSliceReducer
     }
 })

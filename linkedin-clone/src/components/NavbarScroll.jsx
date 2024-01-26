@@ -17,7 +17,7 @@ export default function NavbarScroll() {
     useEffect(() => {
         const handleScroll = () => {
         setHideNavbar(window.scrollY > 10);
-        console.log(window.scrollY);
+        //console.log(window.scrollY);
         };
         //console.log(handleScroll());
         window.addEventListener("scroll", handleScroll);
