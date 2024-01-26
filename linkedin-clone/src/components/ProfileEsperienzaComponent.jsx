@@ -7,7 +7,7 @@ export default function ProfileEsperienzaComponent({ experience }) {
             <Card.Body>
 
                 <div className='d-flex justify-content-between align-items-baseline'>
-                    <h2 className='fs-4'>Esperienza</h2>
+                    <p className='fs-4 fw-semibold m-0'>Esperienza</p>
                     <div>
                     <Button
                         variant="outline-secondary"

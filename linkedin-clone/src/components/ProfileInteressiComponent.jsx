@@ -7,7 +7,7 @@ export default function ProfileInteressiComponent() {
     return (
         <Card className='w-100'>
             <Card.Header className='bg-white'>
-                <h2 className='fs-4 my-2'>Interessi</h2>
+                <p className='fs-4 fw-semibold my-2'>Interessi</p>
                 <Nav variant="tabs" defaultActiveKey="#first" className='mt-3'>
                     <Nav.Item>
                         <Nav.Link href="#first">Aziende</Nav.Link>
@@ -31,7 +31,7 @@ export default function ProfileInteressiComponent() {
                                     variant='outline-secondary'
                                     className='rounded-pill border-2 fw-semibold'
                                 >
-                                    <i class="bi bi-check2"></i>
+                                    <i className="bi bi-check2"></i>
                                     <span> Già segui</span>
                                 </Button>
                             </div>
@@ -49,7 +49,7 @@ export default function ProfileInteressiComponent() {
                                     variant='outline-secondary'
                                     className='rounded-pill border-2 fw-semibold'
                                 >
-                                    <i class="bi bi-check2"></i>
+                                    <i className="bi bi-check2"></i>
                                     <span> Già segui</span>
                                 </Button>
                             </div>

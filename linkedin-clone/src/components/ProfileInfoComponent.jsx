@@ -30,7 +30,7 @@ export const ProfileInfoComponent = ({ profile }) => {
             </div>
             <Card.Body >
                 <div className='d-flex justify-content-between align-items-baseline'>
-                    <h2 className='mt-5 fs-3'>{profile.name} {profile.surname}</h2>
+                    <p className='fs-3 fw-semibold mt-5 mb-0'>{profile.name} {profile.surname}</p>
                     <Button
                         variant="outline-secondary"
                         className='rounded-circle border-0'
@@ -39,11 +39,13 @@ export const ProfileInfoComponent = ({ profile }) => {
                     </Button>
                 </div>
                 <Card.Text>
-                    <h2 className='fs-6 fw-normal'>{profile.title}</h2>
-                    <h3 className='fs-6 fw-normal text-secondary'>{profile.area} &#183;
+                    <p className='m-0'>{profile.title}</p>
+                    <p className='m-0 text-secondary'>{profile.area} &#183;
                         <span className='link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fw-semibold'> Informazioni di contatto</span>
-                    </h3>
-                    <h4 className='fs-6 fw-normal text-primary fw-semibold'>150 collegamenti</h4>
+                    </p>
+                    <p className='m-0 fw-semibold text-primary'>
+                        150 collegamenti
+                    </p>
                 </Card.Text>
                 <div className='d-flex gap-3'>
                     <BtnDisponibileComponent />

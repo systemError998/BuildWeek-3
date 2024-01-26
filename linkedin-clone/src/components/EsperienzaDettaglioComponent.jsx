@@ -12,22 +12,22 @@ export default function EsperienzaDettaglioComponent({ posizione, azienda, descr
                     <i class="bi bi-buildings fs-2"></i>
                 </div>
                 <div>
-                    <h4 className='fs-5 '>
+                    <p className='m-0 fs-5 fw-semibold'>
                         {posizione}
-                    </h4>
-                    <h5 className='fs-6 fw-normal'>
+                    </p>
+                    <p className='m-0'>
                         {azienda} &#183; <span>Contratto</span>
-                    </h5>
-                    <h6 className='fs-6 fw-normal text-secondary'>
+                    </p>
+                    <p className='m-0 text-secondary'>
                         Periodo &#183; {luogo} &#183; In sede
-                    </h6>
-                    <p className='fs-6 fw-normal'>
+                    </p>
+                    <p className='m-0'>
                         {descrizione}
                     </p>
-                    <h6 className='fs-6'>
+                    <p className='m-0'>
                         <i class="bi bi-gem"></i>
                         <span> Competenze</span>
-                    </h6>
+                    </p>
                 </div>
 
             </Card.Body>

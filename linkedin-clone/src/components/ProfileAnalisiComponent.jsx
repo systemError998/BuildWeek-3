@@ -6,7 +6,7 @@ export default function ProfileAnalisiComponent() {
         <Card className="my-2">
             <Card.Body>
                 <Card.Text>
-                    <h2 className='fs-4 mb-0'>Analisi</h2>
+                    <p className='fs-4 fw-semibold mb-0'>Analisi</p>
                     <div className='text-secondary d-flex gap-2'>
                         <i className="bi bi-eye-fill"></i>
                         <p className='m-0'>

@@ -7,7 +7,9 @@ export default function ProfileLingueComponent() {
             <Card.Body>
 
                 <div className='d-flex justify-content-between align-items-baseline'>
-                    <h2 className='fs-4'>Lingue</h2>
+                    <p className='fs-4 fw-semibold m-0'>
+                        Lingue
+                    </p>
                     <div>
                         <Button
                             variant="outline-secondary"
@@ -26,17 +28,21 @@ export default function ProfileLingueComponent() {
 
                 <div className='mt-3'>
                     <div>
-                        <h4 className='fs-5 '>
+                        <p className='fs-5 fw-semibold m-0'>
                             Italiano
-                        </h4>
-                        <p className='text-secondary m-0'>Conoscenza madrlingua o bilingue</p>
+                        </p>
+                        <p className='text-secondary m-0'>
+                            Conoscenza madrlingua o bilingue
+                        </p>
                     </div>
                     <hr />
                     <div>
-                        <h4 className='fs-5 '>
+                        <p className='fs-5 fw-semibold m-0'>
                             Inglese
-                        </h4>
-                        <p className='text-secondary m-0'>Conoscenza lavorativa professionale</p>
+                        </p>
+                        <p className='text-secondary m-0'>
+                            Conoscenza lavorativa professionale
+                        </p>
                     </div>
                 </div>
 

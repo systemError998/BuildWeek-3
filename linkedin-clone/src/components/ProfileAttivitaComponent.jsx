@@ -1,14 +1,21 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { useState } from 'react'
+import { Card, Button, Modal, Form } from 'react-bootstrap'
 
 export default function ProfileAttivitaComponent() {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     return (
         <Card className="my-2">
             <Card.Body>
                 <div className='d-flex justify-content-between'>
                     <div>
-                        <h2 className='fs-4 mb-0'>Attività</h2>
-                        <h4 className='fs-6 fw-normal text-primary fw-semibold'>150 follower</h4>
+                        <p className='fs-4 fw-semibold mb-0'>Attività</p>
+                        <p className='fs-6 text-primary fw-semibold'>150 follower</p>
                     </div>
                     <div>
                         <Button
@@ -19,9 +26,68 @@ export default function ProfileAttivitaComponent() {
                         <Button
                             variant="outline-secondary"
                             className='rounded-circle ms-2 border-0'
+                            onClick={handleShow}
                         >
                             <i className="bi bi-pencil"></i>
                         </Button>
+
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title className='fs-5'>
+                                    Quali contenuti vuoi mostrare per primi?
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                La tua attività recente mostrerà solo i contenuti degli ultimi 360 giorni.
+                                <Form className='mt-3'>
+                                    <Form.Check
+                                        type='radio'
+                                        label="Post"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Commenti"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Video"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Immagini"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Articoli"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Newsletter"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Eventi"
+                                        name="content-type"
+                                    />
+                                    <Form.Check
+                                        type='radio'
+                                        label="Documenti"
+                                        name="content-type"
+                                    />
+                                </Form>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="primary" className='rounded-pill' onClick={handleClose}>
+                                    Salva
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
                 <div className='d-flex gap-2 mt-2'>
