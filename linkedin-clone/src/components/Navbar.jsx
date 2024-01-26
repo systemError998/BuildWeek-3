@@ -11,7 +11,15 @@ import Logo from '../assets/logo.png';
 import { useState, useEffect, useRef } from 'react';
 import { FcVip } from "react-icons/fc";
 
+import NavbarScroll from './NavbarScroll';
+import OffCanvNavbar from './OffCanvNavbar';
+
 export default function MyNavbar() {
+
+  /* Sate e Set OffCanvas */
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true); 
+  const handleClose = () => setShow(false);
 
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -32,7 +40,7 @@ export default function MyNavbar() {
   }, []);
   
   return (
-    <>
+    <div className='sticky-top'>
     <Navbar
     bg="white"
     data-bs-theme="light"
@@ -193,10 +201,11 @@ export default function MyNavbar() {
             {/*SOTTO: Bisogna aggiungere un Offcanvas per la voce seguente (vedi sito originale)*/}
             <div className='text-center' style={{width: '8rem'}} >
               <div>
-                <Nav.Link className='testoNavbar'>
-                  <CgMenuGridR className='navbarIcon' />
+                <Nav.Link className='testoNavbar' onClick={handleShow}>   {/* onClick={handleShow} */}
+                  <CgMenuGridR className='navbarIcon'  />
                   <p className='mb-0'>Per le Aziende</p>
                 </Nav.Link>
+                <OffCanvNavbar show={show} onHide={handleClose}/>
               </div>
             </div>
             <div>
@@ -207,6 +216,7 @@ export default function MyNavbar() {
           </div>
         </div>
     </Navbar>
-    </>
+    <NavbarScroll />
+    </div>
   )
 }
