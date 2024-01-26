@@ -5,8 +5,11 @@ import ProfileAnalisiComponent from './ProfileAnalisiComponent'
 import ProfileRisorseComponent from './ProfileRisorseComponent'
 import ProfileAttivitaComponent from './ProfileAttivitaComponent';
 import ProfileEsperienzaComponent from './ProfileEsperienzaComponent';
-
-// ID di prova:
+import ProfileFormazioneComponent from './ProfileFormazioneComponent';
+import ProfileCompetenzeComponent from './ProfileCompetenzeComponent';
+import ProfileCorsiComponent from './ProfileCorsiComponent';
+import ProfileLingueComponent from './ProfileLingueComponent';
+import ProfileInteressiComponent from './ProfileInteressiComponent';// ID di prova:
 
 // nessuna esperienza : "6551f702c55e7e0018f83c10"
 // con esperienza: "6551e7bbc55e7e0018f83bfb"
@@ -102,6 +105,11 @@ export const MainProfileComponent = () => {
       <ProfileRisorseComponent />
       <ProfileAttivitaComponent />
       <ProfileEsperienzaComponent experience={experience} />
+      <ProfileFormazioneComponent />
+      <ProfileCompetenzeComponent />
+      <ProfileCorsiComponent />
+      <ProfileLingueComponent />
+      <ProfileInteressiComponent />
     </>
   );
 }

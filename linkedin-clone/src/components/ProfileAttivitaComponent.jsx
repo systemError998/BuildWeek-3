@@ -13,12 +13,12 @@ export default function ProfileAttivitaComponent() {
                     <div>
                         <Button
                             variant='outline-primary'
-                            className='rounded-pill border border-2 border-primary fw-semibold'>
+                            className='rounded-pill border-2 fw-semibold'>
                             Crea un post
                         </Button>
                         <Button
                             variant="outline-secondary"
-                            className='rounded-circle ms-2 border border-0'
+                            className='rounded-circle ms-2 border-0'
                         >
                             <i className="bi bi-pencil"></i>
                         </Button>
