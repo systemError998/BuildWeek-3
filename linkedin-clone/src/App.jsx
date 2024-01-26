@@ -7,6 +7,9 @@ import ProfilePage from './pages/ProfilePage';
 import JobPage from './pages/JobPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+
+
+
 function App() {
 
   return (
@@ -15,7 +18,8 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route path='/' element={<Homepage />} />
-          <Route path='/profilepage' element={<ProfilePage />} />
+          <Route path='/profilepage/' element={<ProfilePage />} />
+          <Route path='/profilepage/:profileId' element={<ProfilePage />} />
           <Route path='/jobpage' element={<JobPage />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
