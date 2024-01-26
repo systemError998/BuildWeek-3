@@ -4,13 +4,14 @@ import { SideBarComponent } from '../components/SideBarComponent'
 import { MainProfileComponent } from '../components/MainProfileComponent'
 import { MyProfileComponent } from '../components/MyProfileComponent'
 import { useParams } from 'react-router-dom'
+import FooterProfile from '../components/FooterProfile'
 
 export default function ProfilePage() {
   const { profileId } = useParams();
 
   return (
-    <Container className='my-5'>
-      <Row className='gap-1 justify-content-center'>
+    <Container className='mt-3'>
+      <Row className='justify-content-center'>
         <Col xs={12} md={8}>
         {profileId ? (
             <MainProfileComponent profileId={profileId} />
@@ -23,6 +24,7 @@ export default function ProfilePage() {
           <SideBarComponent />
         </Col>
       </Row>
+      <FooterProfile />
     </Container>
   )
 }
