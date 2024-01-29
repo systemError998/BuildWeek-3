@@ -40,11 +40,10 @@ export default function SearchNav() {
               id="basic-typeahead-single"
               onKeyDown={handleSearch}
               placeholder='🔍 Cerca un lavoro...'
-              options={jobsResponse.map((job) => job.title)} />}
+              options={jobsResponse.map((job) => job.title)}
               onChange={handleSearch}
               onSubmit={handleSearch}
             />}
-          <button type="submit" onClick={handleSearch} className='btn btn-primary'>Cerca</button>
 
         </Form.Group>
       </div>
