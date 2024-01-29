@@ -18,7 +18,7 @@ export default function JobCard() {
 
   return (
     <>
-    {jobsResponse && jobsResponse.slice(0, 100).map((job) => (
+    {jobsResponse && jobsResponse.slice(0, 10).map((job) => (
     <div key={job._id} className="row mt-2">
       <div className="col-2">
       <div
@@ -48,6 +48,7 @@ export default function JobCard() {
             {" "}
             <FaCheck /> Visualizzato Promosso{" "}
           </span>
+          <span>-</span>
           <span style={{ color: "#707070" }}>
             {" "}
             <BsLinkedin style={{ color: "#0A66C2" }} /> Candidatura semplice{" "}
