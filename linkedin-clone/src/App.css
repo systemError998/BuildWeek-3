@@ -132,6 +132,23 @@ background: lightgray!important;
 
   /*Job Page*/
 
+  .jobName {
+    text-decoration: none;  
+  }
+
+  .jobName:hover {
+    text-decoration: underline;
+  }
+
+  .buttonJobClose {
+    color: #666666 !important;
+    border-radius: 50%;
+  }
+
+  .buttonJobClose:hover {
+    background-color: #66666642 !important;
+  }
+
   .menuJob {
     font-size: 0.9rem !important;
   }
