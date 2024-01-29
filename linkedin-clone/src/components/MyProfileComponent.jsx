@@ -20,6 +20,7 @@ export const MyProfileComponent = () => {
 
   const[profile, setProfile] = useState([]);
   const[experience, setExperience] = useState([]);
+  const [updateProfile, setUpdateProfile] = useState(false);
 
 
 
@@ -30,7 +31,7 @@ export const MyProfileComponent = () => {
     profileExperienceFetch(urlMyProfile); 
     profileListTest() //solo per vedere la lista
 
-  },[])
+  },[updateProfile])
 
   function profileListTest(){
     fetch("https://striveschool-api.herokuapp.com/api/profile/",{
@@ -90,11 +91,15 @@ export const MyProfileComponent = () => {
 
   }
 
-
+  function updateMyProfile(){
+   
+      setUpdateProfile(true);
+    
+}
 
   return (
     <>
-      <ProfileInfoComponent profile={profile} />
+      <ProfileInfoComponent profile={profile} updateMyProfile={updateMyProfile}/>
       <ProfileDescriptionComponent bio={profile.bio} />
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
