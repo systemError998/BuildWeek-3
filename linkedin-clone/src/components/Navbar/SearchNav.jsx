@@ -3,27 +3,26 @@ import { Form } from 'react-bootstrap';
 import { IoSearch } from "react-icons/io5";
 import Logo from '../../assets/logo.png';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import { fetchJobSearch } from '../../redux/slice/JobSearchSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchJobs } from '../../redux/slice/JobsSlice'
 import { Link  } from 'react-router-dom';
 
 export default function SearchNav() {
   const [query, setQuery] = useState('');
-  const jobsResponse = useSelector(state => state.jobSearch.jobSearch)
+  const jobsResponse = useSelector(state => state.jobs.jobs)
   console.log(jobsResponse);
   const dispatch = useDispatch()
 
   const handleSearch = (e) => {
     // Aggiorna la query quando l'utente seleziona un'opzione
-    if (e.key === 'Enter') {
+    /*if (e.key === 'Enter') {*/
       setQuery(e.target.value);
-      dispatch(fetchJobSearch(query))
-    }
+      dispatch(fetchJobs(query))
+    //}
   }
 
   useEffect(() => {
-    dispatch(fetchJobSearch(query))
+    dispatch(fetchJobs(query))
   }, [dispatch])
 
   return (
@@ -42,6 +41,11 @@ export default function SearchNav() {
               onKeyDown={handleSearch}
               placeholder='🔍 Cerca un lavoro...'
               options={jobsResponse.map((job) => job.title)} />}
+              onChange={handleSearch}
+              onSubmit={handleSearch}
+            />}
+          <button type="submit" onClick={handleSearch} className='btn btn-primary'>Cerca</button>
+
         </Form.Group>
       </div>
     </div>
