@@ -22,6 +22,7 @@ function App() {
           <Route path='/profilepage/:profileId' element={<ProfilePage />} />
           <Route path='/jobpage' element={<JobPage />} />
           <Route path='*' element={<NotFoundPage />} />
+          <Route path='/jobpage' element={<JobPage />} />
         </Routes>
       </BrowserRouter>
     </>
