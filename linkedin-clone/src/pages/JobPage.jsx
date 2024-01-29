@@ -7,6 +7,10 @@ import { IoLogoYoutube } from "react-icons/io";
 import { BsClipboard2Check } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { LiaEditSolid } from "react-icons/lia";
+import { PiTargetBold } from "react-icons/pi";
+import { BsLinkedin } from "react-icons/bs";
+import { FaCheck } from "react-icons/fa6";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function JobPage() {
   return (
@@ -56,8 +60,31 @@ export default function JobPage() {
             <span className='menuJob text-center'>Pubblica offerta gratuita</span>
           </div>
         </div>
-        <div className='col-6 bg-warning'>
-          <h1>JobPage</h1>
+        <div className='col-6'>
+          <div className='bg-light px-3 py-4'>
+            <h4 className='mb-0'>Selezione in corso</h4>
+            <p className=''>Offerte di lavoro che potrebbero esserti sfuggite</p>
+
+            {/*oggetto da mappare*/}
+            <div className='row'>
+              <div className='col-2'>
+
+              </div>
+              <div className='col-9 d-flex flex-column'>
+                <p>Geometra</p>
+                <span>Gallo Prefabbricati s.r.l.</span>
+                <span>Gioia del Colle, Puglia, Italia (In sede)</span>
+                <span> <PiTargetBold /> Selezione attiva</span>
+                <div>
+                  <span> <FaCheck /> Visualizzato Promosso </span>
+                  <span> <BsLinkedin /> Candidatura semplice </span>
+                </div>
+              </div>
+              <div className='col-1'>
+              <AiOutlineClose />
+              </div>
+            </div>
+          </div>
         </div>
         <div className='col-3 bg-danger'>
           <p>Colonna 3</p>
