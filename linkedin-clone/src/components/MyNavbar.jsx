@@ -1,17 +1,11 @@
 import React from 'react'
 import { Navbar, Nav, Dropdown, DropdownItem, Container } from 'react-bootstrap';
-import { TiHome } from "react-icons/ti";
-import { IoPeople } from "react-icons/io5";
-import { MdOutlineWork } from "react-icons/md";
-import { AiFillMessage } from "react-icons/ai";
-import { FaBell } from "react-icons/fa";
 import { CgMenuGridR } from "react-icons/cg";
 import { useState, useEffect, useRef } from 'react';
-import { FcVip } from "react-icons/fc";
 import { fetchNavUser } from '../redux/slice/NavUserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchNav from './Navbar/SearchNav';
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import NavbarScroll from './Navbar/NavbarScroll';
 import OffCanvNavbar from './Navbar/OffCanvNavbar';
 
@@ -56,14 +50,14 @@ export default function MyNavbar() {
     <Navbar
     bg="white"
     data-bs-theme="light"
-    className='py-0 my-0 border border-bottom-secondary'
+    className='py-0 my-0 border border-bottom-secondary d-flex justify-content-between align-items-center'
     >
-        <Container fluid
+        <Container
         className='d-flex justify-content-start align-items-center my-0 py-0'
-         style={{width: '65%', margin: '0 auto'}}>
+         >
           {/*Contenitore della barra di navigazione + menù Navbar*/} 
           <div
-          className='d-flex justify-content-between align-items-center my-0 py-0'
+          className='d-flex justify-content-around align-items-center my-0 py-0'
           style={{
             width: '100%',
               borderRight: '1px solid #666666',
@@ -75,12 +69,12 @@ export default function MyNavbar() {
               {/*Voci del menù della Navbar*/}
               <div>
                 <Nav
-                  className="d-flex justify-content-evenly align-items-baseline me-3"
+                  className="d-flex justify-content-between align-items-baseline me-3"
                   style={{width: '30rem'}}>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
                       <Nav.Link as={Link} to='/' className='testoNavbar'>
-                        <TiHome className='navbarIcon' />
+                        <i className="bi bi-house-door-fill fs-4"></i>
                         <p className='mb-0'>Home</p>
                       </Nav.Link>
                     </div>
@@ -88,7 +82,7 @@ export default function MyNavbar() {
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
                       <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
-                        <IoPeople className='navbarIcon' />
+                        <i className="bi bi-people-fill fs-4"></i>
                         <p className='mb-0'>Rete</p>
                       </Nav.Link>
                     </div>
@@ -96,7 +90,7 @@ export default function MyNavbar() {
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
                       <Nav.Link as={Link} to='/jobpage' className='testoNavbar'>
-                        <MdOutlineWork className='navbarIcon' />
+                        <i className="bi bi-briefcase-fill fs-4"></i>
                         <p className='mb-0'>Lavoro</p>
                       </Nav.Link>
                     </div>
@@ -104,15 +98,15 @@ export default function MyNavbar() {
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
                       <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
-                        <AiFillMessage className='navbarIcon' />
-                        <p className='mb-0'>Messaggistica</p>
+                        <i className="bi bi-chat-dots-fill m-n5 fs-4"></i>
+                        <p className='mb-0'>Messaggi</p>
                       </Nav.Link>
                     </div>
                   </div>
                   <div className='text-center'>
                     <div className='d-flex flex-column justify-content-center'>
                       <Nav.Link as={Link} to='/profilepage' className='testoNavbar'>
-                        <FaBell className='navbarIcon' />
+                        <i className="bi bi-bell-fill fs-4"></i>
                         <p className='mb-0'>Notifiche</p>
                       </Nav.Link>
                     </div>
@@ -136,7 +130,9 @@ export default function MyNavbar() {
                               </div>
                             </div>
                             <div className='dropdownButton' style={{width: '100%'}}>
-                              <span className='fw-semibold m-0 p-0'>Visualizza Profilo</span>
+                              <Link to='/profilepage' className='text-decoration-none'>
+                                <span className='fw-semibold m-0 p-0'>Visualizza Profilo</span>
+                              </Link>
                             </div>
                           </DropdownItem>
                           <hr className='my-1' />
@@ -147,7 +143,7 @@ export default function MyNavbar() {
                               </li>
                               <li>
                                 <DropdownItem className='dropdownOption ps-0 fw-semibold d-flex align-items-center'>
-                                  <FcVip style={{fontSize: '1.5rem'}} />
+                                  <i className="bi bi-grid-3x3-gap-fill"></i>
                                   <span>Prova Premium per 0 EUR</span>
                                 </DropdownItem>
                               </li>
@@ -192,7 +188,7 @@ export default function MyNavbar() {
             <div className='text-center' style={{width: '8rem'}} >
               <div>
                 <Nav.Link className='testoNavbar' onClick={handleShow}>   {/* onClick={handleShow} */}
-                  <CgMenuGridR className='navbarIcon'  />
+                  <i class="bi bi-grid-3x3-gap-fill fs-4"></i>
                   <p className='mb-0'>Per le Aziende</p>
                 </Nav.Link>
                 <OffCanvNavbar show={show} onHide={handleClose}/>

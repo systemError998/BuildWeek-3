@@ -6,6 +6,7 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 import { fetchJobSearch } from '../../redux/slice/JobSearchSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchJobs } from '../../redux/slice/JobsSlice'
+import { Link  } from 'react-router-dom';
 
 export default function SearchNav() {
   const [query, setQuery] = useState('');
@@ -27,21 +28,20 @@ export default function SearchNav() {
 
   return (
     <div className='d-flex justify-content-between align-items-center my-0 py-0'>
+      <Link to='/'>
       <img src={Logo} alt="logo" className='me-2' style={{ width: '2rem' }} />
+      </Link>
       <div
-        className='d-flex justify-content-between align-items-center rounded-1'
-        style={{ background: '#EDF3F8', border: 'none', }}>
-        <IoSearch className='navbarIcon ms-3' />
-        <Form.Group className='d-flex' >
+        className='d-flex justify-content-between align-items-center rounded-1 '
+        style={{ background: '#EDF3F8', border: 'none' }}>
+        <Form.Group className='d-flex typeaheadTest' >
           {jobsResponse &&
             <Typeahead
+              className='position-relative typeaheadTest'
               id="basic-typeahead-single"
               onKeyDown={handleSearch}
-              onSubmit={handleSearch}
-              placeholder="Cerca un lavoro..."
-              options={jobsResponse.map((job) => job.title)}
-            />}
-          <button type="submit" onClick={handleSearch} className='btn btn-primary'>Cerca</button>
+              placeholder='🔍 Cerca un lavoro...'
+              options={jobsResponse.map((job) => job.title)} />}
         </Form.Group>
       </div>
     </div>
