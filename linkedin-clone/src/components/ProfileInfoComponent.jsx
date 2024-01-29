@@ -1,4 +1,5 @@
-import { useState } from 'react'
+
+import React, { useState } from 'react'
 import { Card, Button, Modal, Form } from 'react-bootstrap';
 import '../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
@@ -6,8 +7,8 @@ import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
 import { BtnAltroComponent } from './BtnAltroComponent'
 import Banner from '../assets/img/Banner-Profilo-LinkedIn.png'
 
-
-export const ProfileInfoComponent = ({ profile }) => {
+export const ProfileInfoComponent = ({ profile, updateMyProfile }) => {
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
 
     const [show, setShow] = useState(false);
 
@@ -34,24 +35,22 @@ export const ProfileInfoComponent = ({ profile }) => {
       .then(response => response.json())
       .then(updatedProfile =>{
         console.log('Updated profile: ', updatedProfile)
+        updateMyProfile();
         //qui si potrebbe chiudere lo stato del eventuale modal
       })
-      .catch(console.error(error))
+      .catch(error=> console.error(error))
     }
 
     const handleChange = (e) => {
-        const { fieldName, value } = e.target;
-        setEditedData(prevData => ({ ...prevData, [fieldName]: value }));
-      };
+        const { name, value } = e.target;
+        setEditedData(prevData => {
+            const newData = { ...prevData, [name]: value };
+            console.log('Updated editedData from set:', newData);
+            return newData;
+          });
+    };
 
-        //INSERIRE TIPO 
-        //value={editedData.name}
-        //value={editedData.surname}
-        //value={editedData.title}
-         //value={editedData.area}
-         //value={editedData.bio}
-        //Form.control: onChange={handleChange}
-        //Button : onClick={handleEdit}
+
 
     return (
         <Card className='bg-white w-100'>
@@ -92,7 +91,7 @@ export const ProfileInfoComponent = ({ profile }) => {
                             className="overflow-y-scroll"
                             style={{ height: "500px" }}
                         >
-                            <Form className="container ">
+                            <Form className="container " onSubmit={(e) => { e.preventDefault(); editInfo(); handleClose();}}>
                                 <p class="form-text negative-margin">
                                     * Indica che è obbligatorio
                                 </p>
@@ -107,6 +106,9 @@ export const ProfileInfoComponent = ({ profile }) => {
                                         Nome*
                                     </Form.Label>
                                     <Form.Control
+                                        name='name'
+                                        value={editedData.name}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="--"
                                         autoFocus
@@ -124,6 +126,9 @@ export const ProfileInfoComponent = ({ profile }) => {
                                         Cognome*
                                     </Form.Label>
                                     <Form.Control
+                                        name='surname'
+                                        value={editedData.surname}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="--"
                                         autoFocus
@@ -141,6 +146,9 @@ export const ProfileInfoComponent = ({ profile }) => {
                                         Nome aggiuntivo
                                     </Form.Label>
                                     <Form.Control
+                                        name='title'
+                                        value={editedData.title}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="--"
                                         autoFocus
@@ -164,7 +172,7 @@ export const ProfileInfoComponent = ({ profile }) => {
                                     </Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="--"
+                                        placeholder="----"
                                         autoFocus
                                         style={{ borderColor: "black" }}
                                     />
@@ -190,6 +198,9 @@ export const ProfileInfoComponent = ({ profile }) => {
                                         Sommario*
                                     </Form.Label>
                                     <Form.Control
+                                        name='bio'
+                                        value={editedData.bio}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="--"
                                         autoFocus
@@ -215,9 +226,12 @@ export const ProfileInfoComponent = ({ profile }) => {
                                         className="mt-3 form-text mb-0"
                                         style={{ fontSize: "1.0em" }}
                                     >
-                                        Settore*
+                                        Settore* -image url-
                                     </Form.Label>
                                     <Form.Control
+                                    name='image'
+                                    value={editedData.image}
+                                    onChange={handleChange}
                                         type="text"
                                         placeholder="Es.: Commercio al dettaglio"
                                         autoFocus
@@ -254,6 +268,9 @@ export const ProfileInfoComponent = ({ profile }) => {
                                         Paese/Area geografica*
                                     </Form.Label>
                                     <Form.Control
+                                        name='area'
+                                        value={editedData.area}
+                                        onChange={handleChange}
                                         type="text"
                                         placeholder="--"
                                         autoFocus
@@ -272,7 +289,7 @@ export const ProfileInfoComponent = ({ profile }) => {
                                     </Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="--"
+                                        placeholder="------"
                                         autoFocus
                                         style={{ borderColor: "black" }}
                                     />
@@ -285,16 +302,17 @@ export const ProfileInfoComponent = ({ profile }) => {
                                     Aggiungi o modifica il tuo profilo URL, indirizzo email e
                                     altro
                                 </p>
-                                <button type="button" class="btn text-primary">
+                                <button type="button" class="btn text-primary" >
                                     Modifica le informazioni di contatto
                                 </button>
-                            </Form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="primary" onClick={handleClose}>
+                                <Modal.Footer>
+                            <Button type="submit" variant="primary" >
                                 Salva
                             </Button>
                         </Modal.Footer>
+                            </Form>
+                        </Modal.Body>
+                        
                     </Modal>
                 </div>
                 <Card.Text>
