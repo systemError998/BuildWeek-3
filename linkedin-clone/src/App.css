@@ -164,6 +164,15 @@ background: lightgray!important;
     height: 3.5rem !important;
 }
 
+.commentImg {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+
+.commentBg{
+    background-color: #f2f2f2 !important;
+}
+
 .searchBtn {
     border-radius: 3rem !important;
     height: 3rem !important;
