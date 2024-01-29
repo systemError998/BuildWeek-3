@@ -94,7 +94,6 @@ background: lightgray!important;
     text-decoration: none;
 }
 
-}
 
 
 /* OffCanvas Style */
@@ -131,4 +130,25 @@ background: lightgray!important;
 
 #collapse-right {
     position: relative;
+  }
+
+  /*Job Page*/
+
+  .menuJob {
+    font-size: 0.9rem !important;
+  }
+
+  .linkJobMenu:hover {
+    color: black !important;
+    cursor: pointer !important;
+  }
+
+  .buttonJobMenu {
+    color: #0A66C2 !important;
+    border: 1px solid #0A66C2 !important;
+  }
+
+  .buttonJobMenu:hover {
+    background-color: #77b4f036 !important;
+    cursor: pointer;
   }
