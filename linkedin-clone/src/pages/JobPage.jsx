@@ -61,27 +61,34 @@ export default function JobPage() {
           </div>
         </div>
         <div className='col-6'>
-          <div className='bg-light px-3 py-4'>
-            <h4 className='mb-0'>Selezione in corso</h4>
-            <p className=''>Offerte di lavoro che potrebbero esserti sfuggite</p>
+          <div className='px-3 py-4 bg-light pb-3 pe-3 ps-3 rounded-4'
+            style={{
+            border: "1px solid #DFDEDA",
+            }}>
+            <h4 className='mb-0' style={{fontSize: '1.1em'}}>Selezione in corso</h4>
+            <p style={{color: '#707070'}}>Offerte di lavoro che potrebbero esserti sfuggite</p>
 
             {/*oggetto da mappare*/}
             <div className='row'>
               <div className='col-2'>
-
+                <img src="https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg" 
+                     alt="Immagine profilo" 
+                     style={{height: '4em', width: '4em'}}/>
               </div>
               <div className='col-9 d-flex flex-column'>
-                <p>Geometra</p>
+                <a className='fs-6 fw-semibold jobName' href="#">Geometra</a>
                 <span>Gallo Prefabbricati s.r.l.</span>
-                <span>Gioia del Colle, Puglia, Italia (In sede)</span>
-                <span> <PiTargetBold /> Selezione attiva</span>
+                <span style={{color: '#707070'}} className='pb-1'>Gioia del Colle, Puglia, Italia (In sede)</span>
+                <span style={{color: '#707070'}} className='pb-2'> <PiTargetBold className='fs-4' style={{color: '#01754F'}}/> Selezione attiva</span>
                 <div>
-                  <span> <FaCheck /> Visualizzato Promosso </span>
-                  <span> <BsLinkedin /> Candidatura semplice </span>
+                  <span style={{color: '#707070'}}> <FaCheck /> Visualizzato Promosso </span>
+                  <span style={{color: '#707070'}}> <BsLinkedin style={{color: '#0A66C2'}}/> Candidatura semplice </span>
                 </div>
               </div>
               <div className='col-1'>
-              <AiOutlineClose />
+              <div className='buttonJobClose d-flex align-items-center justify-content-center'>
+               <AiOutlineClose className='fs-4'/>
+              </div> 
               </div>
             </div>
           </div>
