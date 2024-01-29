@@ -12,7 +12,7 @@ export default function NavbarScroll() {
     const dispatch = useDispatch();
 
     const userFetch = useSelector((state) => state.navUser.navUser);
-    console.log(userFetch.bio);
+    // console.log(userFetch.bio);
 
     useEffect(() => {
         dispatch(fetchNavUser());
@@ -43,7 +43,7 @@ export default function NavbarScroll() {
                 style={{ display: hideNavbar ? 'block' : 'none' }}
                 bg="white"
                 data-bs-theme="light"
-                className='py-0 my-0 border border-bottom-secondary'>
+                className='py-0 my-0 border border-bottom-secondary slideDown'>
                 
                 <div className='container my-2'>
                     <div className='d-flex my-auto'>
