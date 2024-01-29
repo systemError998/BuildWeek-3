@@ -8,25 +8,23 @@ import axios from 'axios';
 
 export default function SearchNav() {
   const [query, setQuery] = useState('');
-  const options = [];
+  const [ jobs , setJobs ] = useState([])
+  console.log(jobs);
 
-  const handleSearch = (selected) => {
+  const handleSearch = (e) => {
     // Aggiorna la query quando l'utente seleziona un'opzione
-    if (selected.length > 0) {
-      setQuery(selected[0]);
-    }
-  }
-
-  const fetchJobs = () => {
-    axios
-      .get(`https://strive-benchmark.herokuapp.com/api/jobs?search=${query}`)
+      //e.preventDefault()
+      if(e.key === 'Enter') {
+      setQuery(e.target.value);
+      axios.get(`https://strive-benchmark.herokuapp.com/api/jobs?search=${query}`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.data);
+        setJobs(res.data.data)
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }
+        console.log(err);});
+      console.log(jobs);
+      }}
 
   return (
     <div className='d-flex justify-content-between align-items-center my-0 py-0'>
@@ -35,18 +33,24 @@ export default function SearchNav() {
         className='d-flex justify-content-between align-items-center rounded-1'
         style={{background: '#EDF3F8', border: 'none',}}>
         <IoSearch className='navbarIcon ms-3' />
-        <Form.Group className='d-flex' onSubmit={fetchJobs}>
+        <Form.Group className='d-flex' >
           <Typeahead
             id="basic-typeahead-single"
-            labelKey="name"
-            onChange={handleSearch}
-            options={options}
-            placeholder="Cerca"
+            onKeyDown={handleSearch}
+            onSubmit={handleSearch}
+            placeholder="Cerca un lavoro..."
+            options={jobs.map((job) => job.title) }
           />
-          <button type="submit" onClick={fetchJobs} className='btn btn-primary'>Cerca</button>
+          <button type="submit" onClick={handleSearch} className='btn btn-primary'>Cerca</button>
         </Form.Group>
       </div>
     </div>
   )
 }
-
+{/* <div>
+  {option.name}
+  <div>
+    <small>Capital: {option.capital}</small>
+  </div>
+</div>
+ */}

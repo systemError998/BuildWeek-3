@@ -44,7 +44,7 @@ export default function MyNavbar() {
 
   /* Fetch User */
   const userFetch = useSelector((state) => state.navUser.navUser);
-  console.log(userFetch.bio);
+  //console.log(userFetch.bio);
 
   useEffect(() => {
     dispatch(fetchNavUser());
