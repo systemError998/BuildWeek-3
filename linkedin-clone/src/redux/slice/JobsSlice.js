@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const fetchJobs = createAsyncThunk("jobSearch/fetch", async () => {
-    //console.log("sono l'Uomo Focaccina")
+    //console.log("sono l'Uomo Focaccina") <3
     const response = await axios.get(endpointJobs, {
         headers: {
             'Authorization': apiKey

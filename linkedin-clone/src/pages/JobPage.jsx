@@ -7,10 +7,8 @@ import { IoLogoYoutube } from "react-icons/io";
 import { BsClipboard2Check } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { LiaEditSolid } from "react-icons/lia";
-import { PiTargetBold } from "react-icons/pi";
-import { BsLinkedin } from "react-icons/bs";
-import { FaCheck } from "react-icons/fa6";
-import { AiOutlineClose } from "react-icons/ai";
+import SideFooter from '../components/Sidebar/SideFooter'
+import JobCard from '../components/JobComponent/JobCard'
 
 export default function JobPage() {
   return (
@@ -60,8 +58,8 @@ export default function JobPage() {
             <span className='menuJob text-center'>Pubblica offerta gratuita</span>
           </div>
         </div>
-        <div className='col-6'>
-          <div className='px-3 py-4 bg-light pb-3 pe-3 ps-3 rounded-4'
+        <div className='col-6 mb-5'>
+          <div className='px-3 pt-4 bg-light pe-3 ps-3 rounded-4'
             style={{
             border: "1px solid #DFDEDA",
             }}>
@@ -69,32 +67,12 @@ export default function JobPage() {
             <p style={{color: '#707070'}}>Offerte di lavoro che potrebbero esserti sfuggite</p>
 
             {/*oggetto da mappare*/}
-            <div className='row'>
-              <div className='col-2'>
-                <img src="https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg" 
-                     alt="Immagine profilo" 
-                     style={{height: '4em', width: '4em'}}/>
-              </div>
-              <div className='col-9 d-flex flex-column'>
-                <a className='fs-6 fw-semibold jobName' href="#">Geometra</a>
-                <span>Gallo Prefabbricati s.r.l.</span>
-                <span style={{color: '#707070'}} className='pb-1'>Gioia del Colle, Puglia, Italia (In sede)</span>
-                <span style={{color: '#707070'}} className='pb-2'> <PiTargetBold className='fs-4' style={{color: '#01754F'}}/> Selezione attiva</span>
-                <div>
-                  <span style={{color: '#707070'}}> <FaCheck /> Visualizzato Promosso </span>
-                  <span style={{color: '#707070'}}> <BsLinkedin style={{color: '#0A66C2'}}/> Candidatura semplice </span>
-                </div>
-              </div>
-              <div className='col-1'>
-              <div className='buttonJobClose d-flex align-items-center justify-content-center'>
-               <AiOutlineClose className='fs-4'/>
-              </div> 
-              </div>
-            </div>
+            <JobCard />
+            {/*fine oggetto da mappare*/}
           </div>
         </div>
-        <div className='col-3 bg-danger'>
-          <p>Colonna 3</p>
+        <div className='col-3'>
+          <SideFooter />
         </div>
       </div>
     </Container>
