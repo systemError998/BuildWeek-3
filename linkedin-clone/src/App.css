@@ -195,3 +195,9 @@ background: lightgray!important;
     height: 3rem !important;
     width: 81% !important;
 }
+
+/* TYPEAHEAD STYLE */
+.typeaheadTest{
+    width: 300px;
+}
+/* TYPEAHEAD STYLE */
