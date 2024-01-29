@@ -132,6 +132,23 @@ background: lightgray!important;
 
   /*Job Page*/
 
+  .jobName {
+    text-decoration: none;  
+  }
+
+  .jobName:hover {
+    text-decoration: underline;
+  }
+
+  .buttonJobClose {
+    color: #666666 !important;
+    border-radius: 50%;
+  }
+
+  .buttonJobClose:hover {
+    background-color: #66666642 !important;
+  }
+
   .menuJob {
     font-size: 0.9rem !important;
   }
@@ -164,8 +181,23 @@ background: lightgray!important;
     height: 3.5rem !important;
 }
 
+.commentImg {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+
+.commentBg{
+    background-color: #f2f2f2 !important;
+}
+
 .searchBtn {
     border-radius: 3rem !important;
     height: 3rem !important;
     width: 81% !important;
 }
+
+/* TYPEAHEAD STYLE */
+.typeaheadTest{
+    width: 300px;
+}
+/* TYPEAHEAD STYLE */
