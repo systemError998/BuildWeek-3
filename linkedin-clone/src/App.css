@@ -94,8 +94,6 @@ background: lightgray!important;
     text-decoration: none;
 }
 
-}
-
 
 /* OffCanvas Style */
 .fontTitleOffcanvas {
@@ -132,3 +130,22 @@ background: lightgray!important;
 #collapse-right {
     position: relative;
   }
+
+.dropFont {
+    font-size: 0.9em !important;
+}
+
+.createPost {
+    height: 5rem !important;
+}
+
+.postHeight {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+}
+
+.searchBtn {
+    border-radius: 3rem !important;
+    height: 3rem !important;
+    width: 81% !important;
+}
