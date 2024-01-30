@@ -54,10 +54,10 @@ export default function NavbarScroll() {
                         </div>
                         <div className='ms-3 profileNavbarScroll mt-2'>
                             <p id='logo'>{userFetch.name} {userFetch.surname}</p>
-                            <p>{userFetch.bio}</p>
+                            <p>{userFetch.title}</p>
                         </div>
                     </div>
-                    <div>
+                    <div className='d-flex gap-2'>
                         <BtnAltroComponent />
                         <BtnAggiungiSezioneComponent />
                         <BtnDisponibileComponent />

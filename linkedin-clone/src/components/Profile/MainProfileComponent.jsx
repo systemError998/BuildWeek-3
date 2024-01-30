@@ -11,6 +11,7 @@ import ProfileCorsiComponent from './ProfileCorsiComponent';
 import ProfileLingueComponent from './ProfileLingueComponent';
 import ProfileInteressiComponent from './ProfileInteressiComponent';
 import { useParams } from 'react-router-dom';
+import { apiKey } from '../../api';
 
 //IMPORTANTE
 //PER LA SIDEBAR
@@ -25,8 +26,6 @@ import { useParams } from 'react-router-dom';
 
 
 export const MainProfileComponent = () => {
-
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
 
   const[profile, setProfile] = useState([]);
   const[experience, setExperience] = useState([]);
@@ -49,7 +48,7 @@ export const MainProfileComponent = () => {
     fetch(urlProfile,{
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `${apiKey}`,
         'Content-Type': 'application/json',
       }
     })
@@ -72,7 +71,7 @@ export const MainProfileComponent = () => {
     fetch(urlProfile + profileId,{
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `${apiKey}`,
         'Content-Type': 'application/json',
       }
     })
@@ -86,7 +85,7 @@ export const MainProfileComponent = () => {
       return fetch(`https://striveschool-api.herokuapp.com/api/profile/${profileId}/experiences`,{
          method: 'GET',
          headers:{
-           'Authorization': `Bearer ${token}`,
+           'Authorization': `${apiKey}`,
           'Content-Type': 'application/json',
          }
        })
