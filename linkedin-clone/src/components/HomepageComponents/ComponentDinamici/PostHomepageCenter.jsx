@@ -168,7 +168,7 @@ export default function PostHomepageCenter({ post }) {
                         <Modal.Footer className='border-0'>
                             <Form.Group className="mb-3">
                                 <Form.Label>Allega Immagine</Form.Label>
-                                <Form.Control type="file" name="postImage" accept="image/*" />
+                                <Form.Control type="file" name="postImage" accept="image/*" className='inputfix' />
                             </Form.Group>
                             <Button variant="secondary" onClick={handleClose}>
                                 Chiudi

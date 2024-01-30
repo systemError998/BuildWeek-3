@@ -232,6 +232,11 @@ background: lightgray!important;
 
 /*Modal Post*/
 
+.inputfix {
+    width: 18em!important;
+    margin-bottom: 1em!important;
+}
+
 .modalBtnIcon {
     color: #666666 !important;
 }
