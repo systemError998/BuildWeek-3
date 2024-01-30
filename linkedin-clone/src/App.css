@@ -129,6 +129,10 @@ background: lightgray!important;
 #collapse-right {
     position: relative;
   }
+  .imagesize {
+    height: 25em!important;
+    object-fit: cover!important;
+  }
 
   /*Job Page*/
 
@@ -196,18 +200,35 @@ background: lightgray!important;
     width: 81% !important;
 }
 
+.crocettina:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.cuoricino {
+    position: absolute;
+    right: -2.5rem;
+}
+.cuoricino:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    color: red;
+}
+
+
 /* TYPEAHEAD STYLE */
 .typeaheadTest{
     width: 300px;
 }
 /* TYPEAHEAD STYLE */
 
+/* NotFound Style */
 .notFoundBg{
     height: 100vh;
     background: url('./assets/not-found.png');
     background-size: cover ;
     background-position: center top -90px;
 }
+
 
 /*Modal Post*/
 
@@ -225,3 +246,5 @@ background: lightgray!important;
     /*box-shadow: #666666 0px 1px 0px 0.5px !important;*/
     box-shadow: 0 5px 5px -5px #666666 !important;
 }
+
+/* END NotFound Style */

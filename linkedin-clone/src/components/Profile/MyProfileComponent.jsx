@@ -10,6 +10,7 @@ import ProfileCompetenzeComponent from './ProfileCompetenzeComponent';
 import ProfileCorsiComponent from './ProfileCorsiComponent';
 import ProfileLingueComponent from './ProfileLingueComponent';
 import ProfileInteressiComponent from './ProfileInteressiComponent';
+
 import { apiKey } from '../../api';
 
 export const MyProfileComponent = () => {
@@ -93,6 +94,11 @@ export const MyProfileComponent = () => {
     
 }
 
+
+
+
+
+
   return (
     <>
       <ProfileInfoComponent profile={profile} updateMyProfile={updateMyProfile}/>
@@ -100,7 +106,7 @@ export const MyProfileComponent = () => {
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
       <ProfileAttivitaComponent />
-      <ProfileEsperienzaComponent experience={experience} profileId={profile._id} />
+      <ProfileEsperienzaComponent experience={experience} profileId={profile._id} updateMyProfile={updateMyProfile} />
       <ProfileFormazioneComponent />
       <ProfileCompetenzeComponent />
       <ProfileCorsiComponent />

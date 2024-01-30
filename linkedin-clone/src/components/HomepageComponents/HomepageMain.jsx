@@ -7,7 +7,7 @@ import CenterHomepage from './CenterHomepage'
 export default function HomepageMain() {
   return (
     <Row>
-        <Col md={3} className='d-flex justify-content-end flex-wrap'>
+        <Col md={3} className='d-flex flex-column'>
        <LeftSideBar/>
         </Col>
         <Col md={6}>

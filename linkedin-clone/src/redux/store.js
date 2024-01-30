@@ -9,6 +9,7 @@ export const store = configureStore({
         sidebar: SidebarSliceReducer,
         navUser: NavUserSliceReducer,
         jobs: JobsSliceReducer,
-        homepageUser: HomepageSliceReducer
+        favourites: JobsSliceReducer,
+        homepageUser: HomepageSliceReducer,
     }
 })

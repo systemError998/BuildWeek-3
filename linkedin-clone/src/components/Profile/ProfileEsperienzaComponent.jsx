@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { apiKey } from '../../api';
 
 
-export default function ProfileEsperienzaComponent({ experience, profileId }) {
+export default function ProfileEsperienzaComponent({ experience, profileId, updateMyProfile }) {
 
     const [show, setShow] = useState(false);
 
@@ -50,12 +50,16 @@ export default function ProfileEsperienzaComponent({ experience, profileId }) {
           .then(response => response.json())
           .then(data => {
             console.log("POST esperienza fetch:", data);
+            updateMyProfile();
             
             
             
          })
          .catch(error=> console.error(error))
     }
+
+
+
 
     
     return (
