@@ -6,6 +6,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import SidebarProfiles from './Sidebar/SidebarProfiles';
 import SidebarConoscenti from './Sidebar/SidebarConoscenti';
 import ModalComp2 from './Sidebar/ModalComp2';
+import { Link } from 'react-router-dom'
+import { fetchNavUser } from '../redux/slice/NavUserSlice';
 
 
 
@@ -14,6 +16,13 @@ export const SideBarComponent = () => {
   const dispatch = useDispatch();
 
   const sidebarUtenti = useSelector(state => state.sidebar.sidebar)
+
+  const userFetch = useSelector((state) => state.navUser.navUser);
+    // console.log(userFetch.bio);
+
+    useEffect(() => {
+        dispatch(fetchNavUser());
+    }, []);
 
   useEffect(() => {
     dispatch(getSidebarSrc());
@@ -35,7 +44,7 @@ export const SideBarComponent = () => {
         <Card.Title >Public profile & URL</Card.Title>
         <Button variant='link'><i class="bi bi-pencil bg-white text-black"></i></Button>
         </div>
-        <p class="m-0 text-secondary">www.linkedin.com/in/*placeholder*</p>
+        <p as={Link} to="/profilepage/" class="m-0 text-secondary"style={{ cursor: 'pointer'}}>www.linkedin.com/in/{(userFetch.name + "_" + userFetch.surname).toLowerCase()}</p>
       </Card.Body>
     </Card>
     <Card style={{ width: '18rem' }} className='mt-2'>
