@@ -49,28 +49,30 @@ export default function ImageApi({ img }) {
         'Client-ID 0hpMwkPbYqpo0BIjizdqa5np2IXG3888Cgm-rk6sD0c',
         'Client-ID d13giHzZ-CwkTke9lxyVGj_B471hMIHMmmxX9gSTIDo',
         'Client-ID ngik-lTsXKz188yAbtdkR9NQZIcvDyx252A6CXrMnUM',
+        'Client-ID pI2WX63FKA2CC7Y5A7LQ468RCEr5DN0DGtoE7JPhhPk'
     ]
 
-    const fetchImages = async () => {
-        const query = `${img}`;
-        const encodedQuery = encodeURIComponent(query);
-        const url = `https://api.unsplash.com/search/photos?page=1&per_page=1&query=${encodedQuery}`;
-
-        try {
-            const response = await axios.get(url, {
-                headers: {
-                    Authorization: 'Client-ID d13giHzZ-CwkTke9lxyVGj_B471hMIHMmmxX9gSTIDo'
-                }
-            });
-
-            setImage(response.data.results[0].urls.regular);
-        } catch (error) {
-            console.error('Error fetching images:', error);
-            setError('Failed to fetch images.');
-        }
-    };
 
     useEffect(() => {
+        const fetchImages = async () => {
+            const query = img;
+            const encodedQuery = encodeURIComponent(query);
+            const url = `https://api.unsplash.com/search/photos?page=1&per_page=1&query=${encodedQuery}`;
+        
+            try {
+                const response = await axios.get(url, {
+                    headers: {
+                        Authorization: `${keys[Math.floor(Math.random() * 4)]}`
+                    }
+                });
+                
+                setImage(response.data.results[0].urls.regular);
+            } catch (error) {
+                console.error('Errore durante il recupero delle immagini:', error);
+                setError('failed')
+            }
+        };
+
         if (img) {
             fetchImages();
         }
