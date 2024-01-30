@@ -196,15 +196,33 @@ background: lightgray!important;
     width: 81% !important;
 }
 
+.crocettina:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.cuoricino {
+    position: absolute;
+    right: -2.5rem;
+}
+.cuoricino:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    color: red;
+}
+
+
 /* TYPEAHEAD STYLE */
 .typeaheadTest{
     width: 300px;
 }
 /* TYPEAHEAD STYLE */
 
+/* NotFound Style */
 .notFoundBg{
     height: 100vh;
     background: url('./assets/not-found.png');
     background-size: cover ;
     background-position: center top -90px;
 }
+
+/* END NotFound Style */

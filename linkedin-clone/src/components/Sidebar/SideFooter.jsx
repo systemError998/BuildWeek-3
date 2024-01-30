@@ -4,7 +4,7 @@ import { Dropdown, ListGroup } from 'react-bootstrap'
 
 export default function SideFooter() {
   return (
-    <div className='mt-3'>
+    <div className='mt-3 text-center'>
     <ul className='listLeftSideBar d-flex flex-wrap justify-content-evenly align-items-center'>
         <li><a href="#" className='text-decoration-none text-secondary'>Informazioni</a></li>
         <li><a href="#" className='text-decoration-none text-secondary'>Accessibilità</a></li>
