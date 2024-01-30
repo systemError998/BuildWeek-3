@@ -208,3 +208,20 @@ background: lightgray!important;
     background-size: cover ;
     background-position: center top -90px;
 }
+
+/*Modal Post*/
+
+.modalBtnIcon {
+    color: #666666 !important;
+}
+
+.modalPostBtn {
+    border-radius: 50% !important;
+    background-color: #F4F2EE !important;
+    border:none !important;
+}
+
+.modalPostBtn:hover {
+    /*box-shadow: #666666 0px 1px 0px 0.5px !important;*/
+    box-shadow: 0 5px 5px -5px #666666bd !important;
+}
