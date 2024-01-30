@@ -129,6 +129,10 @@ background: lightgray!important;
 #collapse-right {
     position: relative;
   }
+  .imagesize {
+    height: 25em!important;
+    object-fit: cover!important;
+  }
 
   /*Job Page*/
 

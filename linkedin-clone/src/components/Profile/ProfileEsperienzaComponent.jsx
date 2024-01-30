@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 
 
 
-export default function ProfileEsperienzaComponent({ experience, profileId }) {
+export default function ProfileEsperienzaComponent({ experience, profileId, updateMyProfile }) {
 
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
 
@@ -57,12 +57,16 @@ export default function ProfileEsperienzaComponent({ experience, profileId }) {
           .then(response => response.json())
           .then(data => {
             console.log("POST esperienza fetch:", data);
+            updateMyProfile();
             
             
             
          })
          .catch(error=> console.error(error))
     }
+
+
+
 
     
     return (

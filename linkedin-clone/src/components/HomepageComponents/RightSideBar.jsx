@@ -31,24 +31,24 @@ export default function RightSideBar() {
                             <ListGroup.Item action variant='ligth p-0'>
                                 <ul>
                                     <li>
-                                        <a href="" className='text-decoration-none text-dark fw-bold'>Ciao</a>
-                                        <p className='text-secondary'>ciaiocaocoacao</p>
+                                        <a href="" className='text-decoration-none text-dark fw-bold'>I 15 lavori in più rapida crescita in  Italia</a>
+                                        <p className='text-secondary'>Notizie Principali • 275 lettori</p>
                                     </li>
                                 </ul>
                             </ListGroup.Item>
                             <ListGroup.Item action variant='ligth p-0'>
                                 <ul>
                                     <li>
-                                        <a href="" className='text-decoration-none text-dark fw-bold'>Ciao</a>
-                                        <p className='text-secondary'>ciaiocaocoacao</p>
+                                        <a href="" className='text-decoration-none text-dark fw-bold'>CEO in prima pagina</a>
+                                        <p className='text-secondary'>23h fa</p>
                                     </li>
                                 </ul>
                             </ListGroup.Item>
                             <ListGroup.Item action variant='ligth p-0 mb-0'>
                                 <ul>
                                     <li>
-                                        <a href="" className='text-decoration-none text-dark fw-bold'>Ciao</a>
-                                        <p className='text-secondary mb-0'>ciaiocaocoacao</p>
+                                        <a href="" className='text-decoration-none text-dark fw-bold'>Turismo in ripresa con l'e-commerce</a>
+                                        <p className='text-secondary mb-0'>18h fa</p>
                                     </li>
                                 </ul>
                             </ListGroup.Item>
@@ -62,16 +62,16 @@ export default function RightSideBar() {
                                     <ListGroup.Item action variant='ligth p-0'>
                                         <ul>
                                             <li>
-                                                <a href="" className='text-decoration-none text-dark fw-bold'>Ciao</a>
-                                                <p className='text-secondary'>ciaiocaocoacao</p>
+                                                <a href="" className='text-decoration-none text-dark fw-bold'>Che 2023 per il mercato?</a>
+                                                <p className='text-secondary'>Bitcoin in discesa</p>
                                             </li>
                                         </ul>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant='ligth p-0'>
                                         <ul>
                                             <li>
-                                                <a href="" className='text-decoration-none text-dark fw-bold'>Ciao</a>
-                                                <p className='text-secondary'>ciaiocaocoacao</p>
+                                                <a href="" className='text-decoration-none text-dark fw-bold'>Silvia Galaxy(semplicemente Silvia)</a>
+                                                <p className='text-secondary'>Lite furibonda con Zucchi Sara, come difendere se stessi.</p>
                                             </li>
                                         </ul>
                                     </ListGroup.Item>
