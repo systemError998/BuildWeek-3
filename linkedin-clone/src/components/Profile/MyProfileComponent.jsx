@@ -10,6 +10,7 @@ import ProfileCompetenzeComponent from './ProfileCompetenzeComponent';
 import ProfileCorsiComponent from './ProfileCorsiComponent';
 import ProfileLingueComponent from './ProfileLingueComponent';
 import ProfileInteressiComponent from './ProfileInteressiComponent';
+import PostFinto from './PostFinto';
 
 
 
@@ -97,14 +98,20 @@ export const MyProfileComponent = () => {
     
 }
 
+
+
+
+
+
   return (
     <>
+    <PostFinto />
       <ProfileInfoComponent profile={profile} updateMyProfile={updateMyProfile}/>
       <ProfileDescriptionComponent bio={profile.bio} />
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
       <ProfileAttivitaComponent />
-      <ProfileEsperienzaComponent experience={experience} profileId={profile._id} />
+      <ProfileEsperienzaComponent experience={experience} profileId={profile._id} updateMyProfile={updateMyProfile} />
       <ProfileFormazioneComponent />
       <ProfileCompetenzeComponent />
       <ProfileCorsiComponent />

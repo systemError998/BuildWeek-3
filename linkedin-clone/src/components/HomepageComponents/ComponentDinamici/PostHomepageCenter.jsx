@@ -17,8 +17,79 @@ import {fetchNavUser} from '../../../redux/slice/NavUserSlice';
 
 export default function PostHomepageCenter({ post }) {
 
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
+
+    const [post2, setPost2] = useState({
+        text:'',   
+    });
+
+    const [postUser, setPostUser] = useState([]);
+
     const utente = useSelector(state => state.navUser.navUser)
     const dispatch = useDispatch()
+
+    function postPosts(){
+        fetch("https://striveschool-api.herokuapp.com/api/posts/",{
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post2),
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log("THIS IS POSTS:", data);
+      
+          
+          })
+          .catch(error=>{
+            console.error(error)
+          })
+      }
+      useEffect(()=>{
+        postListUser();
+      },[])
+
+
+      function postListUser(){
+        fetch("https://striveschool-api.herokuapp.com/api/posts/",{
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log("THIS IS POST LIST:", data);
+          const postsByUser = data.filter(x => x.username === utente.name);
+          setPostUser(postsByUser);
+    
+            console.log("POSTS BY USER:", postsByUser);
+    
+        
+        })
+        .catch(error=>{
+          console.error(error)
+        })
+    
+      }
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setPost2(prevState => { 
+            const newPost = {...prevState, [name]: value };
+            console.log('NEW POST from set:', newPost);
+            return newPost
+    });
+    };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        postPosts(post2);
+        handleClose();
+    };
 
     useEffect(() => {
         dispatch(fetchNavUser());
@@ -53,6 +124,9 @@ export default function PostHomepageCenter({ post }) {
                         </Modal.Header>
                             <Modal.Body>
                                 <Form.Control
+                                    name='text'
+                                    value={post2.text}
+                                    onChange={handleChange}
                                     required
                                     as="textarea"
                                     placeholder="Di cosa vorresti parlare?"
@@ -61,10 +135,11 @@ export default function PostHomepageCenter({ post }) {
                                 />
                             </Modal.Body>
                         <Modal.Footer className='border-0'>
+                        
                         <Button variant="secondary" onClick={handleClose}>
                             Chiudi
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" onClick={handleSubmit}>
                             Pubblica
                         </Button>
                         </Modal.Footer>
