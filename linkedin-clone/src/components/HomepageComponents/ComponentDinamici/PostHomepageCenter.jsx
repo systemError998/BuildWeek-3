@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Button, Card, Collapse, Form } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux'
+import { Button, Card, Collapse, Form, Modal } from 'react-bootstrap';
 import { FaPlus } from "react-icons/fa6";
 import { IoIosSend } from "react-icons/io";
 import { HiMiniArrowPathRoundedSquare } from "react-icons/hi2";
@@ -10,24 +11,65 @@ import { AiFillLike } from "react-icons/ai";
 import { PiHandsClapping } from "react-icons/pi";
 import { FaRegSmile } from "react-icons/fa";
 import { SlPicture } from "react-icons/sl";
-import { useSelector } from 'react-redux';
 import LoadingSpinner from "../../LoadingSpinner";
 import ImageApi from './ImageApi';
+import {fetchNavUser} from '../../../redux/slice/NavUserSlice';
 
 export default function PostHomepageCenter({ post }) {
+
+    const utente = useSelector(state => state.navUser.navUser)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchNavUser());
+        }, [dispatch]);
 
     const [open, setOpen] = useState(false);
     const loading = useSelector(state => state.homepageUser.loading)
     //console.log(loading);
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <>
             <Card className='w-100'>
                 <div className='createPost d-flex align-items-center justify-content-around'>
-                    <img src='https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg' alt="profile-img" style={{ height: "5em", width: "5em" }}
+                    <img src={utente.image} alt="profile-img" style={{ height: "5em", width: "5em" }}
                         className='rounded-circle border border-white border-3 postHeight'
                     />
-                    <Button variant="outline-secondary searchBtn">Avvia un post</Button>
+                    <Button variant="outline-secondary searchBtn" onClick={handleShow}>Avvia un post</Button>
+
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton className='border-0'>
+                        <div className='createPost d-flex align-items-center'>
+                            <img src={utente.image} alt="profile-img" style={{ height: "5em", width: "5em" }}
+                                className='rounded-circle border border-white border-3 commentImg mx-2'
+                            />
+                        </div>
+                        <Modal.Title>{utente.name} {utente.surname}</Modal.Title>
+                        </Modal.Header>
+                            <Modal.Body>
+                                <Form.Control
+                                    required
+                                    as="textarea"
+                                    placeholder="Di cosa vorresti parlare?"
+                                    className='border-0 h-100'
+                                    rows={10}
+                                />
+                            </Modal.Body>
+                        <Modal.Footer className='border-0'>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Chiudi
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                            Pubblica
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
+
                 </div>
                 <div className='d-flex align-items-center justify-content-around mb-3'>
                     <a href="#" className='text-decoration-none text-secondary fs-6'><i class="bi bi-image text-primary fs-5 me-1"></i> Contenuti multimediali</a>
@@ -80,6 +122,7 @@ export default function PostHomepageCenter({ post }) {
                                     </div>
                                 </Card.Body>
 
+                                <div>
                                 <Collapse in={open}>
 
                                     <Card className='w-100 border-0'>
@@ -114,6 +157,7 @@ export default function PostHomepageCenter({ post }) {
 
                                     </Card>
                                 </Collapse>
+                                </div>
                             </Card>
                         </>
                     )}

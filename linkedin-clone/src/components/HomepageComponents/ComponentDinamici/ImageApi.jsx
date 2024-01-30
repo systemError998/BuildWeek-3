@@ -76,7 +76,7 @@ export default function ImageApi({ img }) {
         if (img) {
             fetchImages();
         }
-    }, [img]);
+    }, []);
 
     return (
         <>

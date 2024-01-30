@@ -1,24 +1,35 @@
-import React from 'react'
-import { Button, Card, ListGroup } from 'react-bootstrap'
+import React from 'react';
+import { Button, Card, ListGroup } from 'react-bootstrap';
+import { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchNavUser} from '../../redux/slice/NavUserSlice';
 
 export default function LeftSideBar() {
+
+    const utente = useSelector(state => state.navUser.navUser)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchNavUser());
+        }, [dispatch]);
+
     return (
         <>
             <Card>
                 <div class='position-relative'>
                     <Card.Img variant="top" className='imgLeftSideBar' src="https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg" />
-                    <img src='https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg' alt="profile-img" style={{ height: "5em", width: "5em" }}
+                    <img src={utente.image} alt="profile-img" style={{ height: "5em", width: "5em" }}
                         className='rounded-circle position-absolute top-100 start-50 translate-middle border border-white border-3'
                     />
                 </div>
                 <Card.Body>
-                    <Card.Title className='mt-5 text-center'>Gastani Frizzi</Card.Title>
+                    <Card.Title className='mt-5 text-center'>{utente.name} {utente.surname}</Card.Title>
                     <Card.Text className='text-center text-secondary mt-1'>
-                        Studente presso boh
+                        {utente.title}
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className='list-group-flush'>
-                    <ListGroup.Item variant='ligth d-flex justify-content-between align-items-center flex-wrap'>
+                    <ListGroup.Item variant='ligth d-flex justify-content-between align-items-center flex-wrap p-4'>
                         <Button variant='nav-link outline-secondary' className='text-secondary dropFont p-0'>Visitatori del Profilo</Button><span className='text-primary fw-bold'>19</span>
                         <Button variant='nav-link outline-secondary' className='text-secondary dropFont p-0'>Impressioni del Post</Button><span className='text-primary fw-bold'>33</span>
                     </ListGroup.Item>
