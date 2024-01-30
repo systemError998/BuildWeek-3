@@ -4,6 +4,7 @@ import { endpointJobs, apiKey } from '../../api'
 
 const initialState = {
     jobs: [],
+    loading: false,
 }
 
 export const fetchJobs = createAsyncThunk("jobSearch/fetch", async (query) => {
@@ -24,13 +25,14 @@ const jobsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchJobs.pending, (state) => {
-
+                state.loading = true
             })
             .addCase(fetchJobs.fulfilled, (state, action) => {
+                state.loading = false
                 state.jobs = action.payload;
             })
             .addCase(fetchJobs.rejected, (state, action) => {
-
+                state.loading = false
             });
     }
 })

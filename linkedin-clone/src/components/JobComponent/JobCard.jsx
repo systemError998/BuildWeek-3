@@ -6,10 +6,13 @@ import { BsLinkedin } from "react-icons/bs";
 import { fetchJobs } from "../../redux/slice/JobsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../LoadingSpinner";
 
 export default function JobCard() {
 
     const jobsResponse = useSelector(state => state.jobs.jobs)
+    const loading = useSelector(state => state.jobs.loading)
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchJobs())
@@ -17,8 +20,9 @@ export default function JobCard() {
     console.log(jobsResponse)
 
   return (
-    <>
-    {jobsResponse && jobsResponse.slice(0, 10).map((job) => (
+    <div>
+    { loading ? (<LoadingSpinner />) 
+    : jobsResponse && jobsResponse.slice(0, 10).map((job) => (
     <div key={job._id} className="row mt-2">
       <div className="col-2">
       <div
@@ -63,6 +67,6 @@ export default function JobCard() {
       <hr className="mt-3 mb-0 pb-0"/>
     </div>
     ))}
-    </>
+    </div>
   );
 }
