@@ -12,6 +12,7 @@ import { FaRegSmile } from "react-icons/fa";
 import { SlPicture } from "react-icons/sl";
 import { useSelector } from 'react-redux';
 import LoadingSpinner from "../../LoadingSpinner";
+import ImageApi from './ImageApi';
 
 export default function PostHomepageCenter({ post }) {
 
@@ -61,7 +62,7 @@ export default function PostHomepageCenter({ post }) {
                                     <Card.Text className='px-3'>
                                         {e.text}
                                     </Card.Text>
-                                    <Card.Img variant="top" className='rounded-0' src="https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg" />
+                                    <ImageApi img={e.text}/>
                                     <div className='d-flex justify-content-between mx-3'>
                                         <div>
                                             <AiFillLike className='text-primary' />
@@ -73,7 +74,7 @@ export default function PostHomepageCenter({ post }) {
                                     <hr className='mx-2 my-2 text-secondary' />
                                     <div className='d-flex flex-row justify-content-around my-1 mx-2'>
                                         <Button variant="outline-secondary border-0 d-flex align-items-center p-3"><SlLike className='fs-4 me-1' /> Consiglia</Button>
-                                        <Button variant="outline-secondary border-0 d-flex align-items-center p-3" onClick={() => setOpen(!open)} aria-expanded={open}><BiCommentDetail className='fs-4 me-1' /> Commenta</Button>
+                                        <Button variant="outline-secondary border-0 d-flex align-items-center p-3" onClick={(e) => { e.preventDefault(); setOpen(!open); }}><BiCommentDetail className='fs-4 me-1' /> Commenta</Button>
                                         <Button variant="outline-secondary border-0 d-flex align-items-center p-3"><HiMiniArrowPathRoundedSquare className='fs-4 me-1' /> Diffondi il post</Button>
                                         <Button variant="outline-secondary border-0 d-flex align-items-center p-3"><IoIosSend className='fs-4 me-1' /> Invia</Button>
                                     </div>
