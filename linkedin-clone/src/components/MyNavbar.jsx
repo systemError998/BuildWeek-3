@@ -126,7 +126,7 @@ export default function MyNavbar() {
                               </div>
                               <div className='d-flex flex-column flex-wrap text-wrap'>
                                 <p className='nameSectionDropdown mb-1 fw-semibold' style={{color:'#3B3B3B'}}>{userFetch && userFetch.name} {userFetch && userFetch.surname}</p>
-                                <p className='text-break word-wrap'>{userFetch && userFetch.bio}</p>
+                                <p className='text-break word-wrap'>{userFetch && userFetch.title}</p>
                               </div>
                             </div>
                             <div className='dropdownButton' style={{width: '100%'}}>
