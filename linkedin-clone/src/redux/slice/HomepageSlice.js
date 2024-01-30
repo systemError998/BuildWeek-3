@@ -3,6 +3,7 @@ import { apiKey, endpointPosts } from "../../api";
 
 const initialState = {
     homepageArr : [],
+    loading : false,
 }
 
 
@@ -29,13 +30,14 @@ const homepage_slice = createSlice(
         reducers: {},
         extraReducers: builder => {
             builder.addCase(getHomepagePost.pending, (state,action)=>{
-                
+                state.loading = true
             })
             .addCase(getHomepagePost.rejected, (state,action)=>{
-
+                state.loading = false
             })
             .addCase(getHomepagePost.fulfilled, (state,action)=>{
                 console.log(action.payload)
+                state.loading = false
                 state.homepageArr = action.payload
             })
         }

@@ -201,3 +201,10 @@ background: lightgray!important;
     width: 300px;
 }
 /* TYPEAHEAD STYLE */
+
+.notFoundBg{
+    height: 100vh;
+    background: url('./assets/not-found.png');
+    background-size: cover ;
+    background-position: center top -90px;
+}
