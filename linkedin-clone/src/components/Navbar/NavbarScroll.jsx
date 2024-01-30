@@ -3,9 +3,9 @@ import { fetchNavUser } from '../../redux/slice/NavUserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
-import { BtnAltroComponent } from '../BtnAltroComponent';
-import { BtnAggiungiSezioneComponent } from '../BtnAggiungiSezioneComponent';
-import { BtnDisponibileComponent } from '../BtnDisponibileComponent';
+import { BtnAltroComponent } from '../Profile/BtnAltroComponent';
+import { BtnAggiungiSezioneComponent } from '../Profile/BtnAggiungiSezioneComponent';
+import { BtnDisponibileComponent } from '../Profile/BtnDisponibileComponent';
 
 export default function NavbarScroll() {
 

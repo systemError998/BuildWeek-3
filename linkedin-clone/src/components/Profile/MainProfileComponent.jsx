@@ -43,7 +43,7 @@ export const MainProfileComponent = () => {
     profileExperienceFetch(profileId); //cambiare a profileId quando sia colegato a useParams!
     profileListTest() //solo per vedere la lista
 
-  },[])
+  },[profileId])
 
   function profileListTest(){
     fetch(urlProfile,{
