@@ -17,7 +17,7 @@ import {fetchNavUser} from '../../../redux/slice/NavUserSlice';
 
 export default function PostHomepageCenter({ post }) {
 
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWI4ZmZiNTg5OWIxZDAwMTlhNDFkYjMiLCJpYXQiOjE3MDY2MjI5MDEsImV4cCI6MTcwNzgzMjUwMX0.7micrqTTUiYbSqDGi5D2PWGTlb_FVfLBVu7n4ymdiqY';
 
     const [post2, setPost2] = useState({
         text:'',   
@@ -63,7 +63,7 @@ export default function PostHomepageCenter({ post }) {
         .then(response => response.json())
         .then(data => {
           console.log("THIS IS POST LIST:", data);
-          const postsByUser = data.filter(x => x.username === utente.name);
+          const postsByUser = data.filter(x => x.username === "milena");
           setPostUser(postsByUser);
     
             console.log("POSTS BY USER:", postsByUser);
@@ -152,6 +152,51 @@ export default function PostHomepageCenter({ post }) {
                     <a href="#" className='text-decoration-none text-secondary fs-6'><i class="bi bi-card-text text-danger fs-5 me-1"></i> Scrivi un articolo</a>
                 </div>
             </Card>
+            {postUser && postUser
+            .slice(1)
+            .slice(0, 1)
+            .map(p => (
+                <Card className='w-100 my-2' >
+                     <div className='d-flex align-items-center mx-2'>
+                                    <img src={utente.image} alt="profile-img" style={{ height: "5em", width: "5em" }}
+                                        className='rounded-circle border border-white border-3 postHeight'
+                                    />
+                                    <div className='w-100 d-flex align-items-center justify-content-between mx-2'>
+                                        <div className='d-flex flex-column'>
+                                            <h6 className='m-0 mt-2'>{p.username}</h6>
+                                            <p className='d-inline m-0'>{p.text}</p>
+                                            <p>{p.createdAt.slice(0, 10)} • <i className="bi bi-globe-asia-australia text-secondary"></i></p>
+                                        </div>
+                                        <Button variant="outline-primary" className='border-0 d-flex align-items-center'><FaPlus className='me-1' />Segui</Button>
+
+                                    </div>
+                                </div>
+                                <Card.Body className='p-0 pt-1'>
+                                    <Card.Text className='px-3'>
+                                        
+                                    </Card.Text>
+                                    <ImageApi img={p.text}/>
+                                    <div className='d-flex justify-content-between mx-3'>
+                                        <div>
+                                            <AiFillLike className='text-primary' />
+                                            <FcLike className='text-danger' />
+                                            <PiHandsClapping className='text-success' />
+                                        </div>
+                                        <p className='my-1 text-secondary'> {Math.floor(Math.random() * 2000)} commenti • {Math.floor(Math.random() * 2000)} diffusioni post</p>
+                                    </div>
+                                    <hr className='mx-2 my-2 text-secondary' />
+                                    <div className='d-flex flex-row justify-content-around my-1 mx-2'>
+                                        <Button variant="outline-secondary border-0 d-flex align-items-center p-3"><SlLike className='fs-4 me-1' /> Consiglia</Button>
+                                        <Button variant="outline-secondary border-0 d-flex align-items-center p-3" onClick={(e) => { e.preventDefault(); setOpen(!open); }}><BiCommentDetail className='fs-4 me-1' /> Commenta</Button>
+                                        <Button variant="outline-secondary border-0 d-flex align-items-center p-3"><HiMiniArrowPathRoundedSquare className='fs-4 me-1' /> Diffondi il post</Button>
+                                        <Button variant="outline-secondary border-0 d-flex align-items-center p-3"><IoIosSend className='fs-4 me-1' /> Invia</Button>
+                                    </div>
+                                </Card.Body>
+                    
+                </Card>
+            ))}
+
+
             {loading ? (<div className="d-flex justify-content-center"> <LoadingSpinner /> </div>)
                 :
                 post && post
@@ -162,7 +207,7 @@ export default function PostHomepageCenter({ post }) {
                         <>
                             <Card className='w-100 my-2' key={index}>
                                 <div className='d-flex align-items-center mx-2'>
-                                    <img src={e.user.image} alt="profile-img" style={{ height: "5em", width: "5em" }}
+                                    <img src={e.image} alt="profile-img" style={{ height: "5em", width: "5em" }}
                                         className='rounded-circle border border-white border-3 postHeight'
                                     />
                                     <div className='w-100 d-flex align-items-center justify-content-between mx-2'>
