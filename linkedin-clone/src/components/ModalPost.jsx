@@ -19,6 +19,27 @@ function ModalPost({ handleCloseModal, show }) {
     setInputValue(e.target.value);
   };
 
+  const [isClicked, setIsClicked] = useState(false);
+  const [areAdditionalButtonsVisible, setAreAdditionalButtonsVisible] =
+    useState(false);
+
+  const handleClicked = () => {
+    setIsClicked(!isClicked);
+    setAreAdditionalButtonsVisible(!areAdditionalButtonsVisible);
+  };
+
+  const handleCloseAndReset = () => {
+    setIsClicked(false);
+    setAreAdditionalButtonsVisible(false);
+  };
+
+  const dinamicClassToggle = isClicked
+    ? "modalPostBtn me-2 d-none"
+    : "modalPostBtn me-2";
+  const dinamicClassHidden = isClicked
+    ? "modalPostBtn me-2"
+    : "modalPostBtn me-2 d-none";
+
   return (
     <>
       {userFetch && (
@@ -26,6 +47,7 @@ function ModalPost({ handleCloseModal, show }) {
           <Modal.Header
             className="border-0 d-flex justify-content-between align-items-top"
             closeButton
+            onClick={handleCloseAndReset}
           >
             <Modal.Title className="d-flex gap-2">
               <div>
@@ -92,7 +114,10 @@ function ModalPost({ handleCloseModal, show }) {
                   placement="top"
                   overlay={<Tooltip>Altro</Tooltip>}
                 >
-                  <Button className="modalPostBtn me-2">
+                  <Button
+                    className={dinamicClassToggle}
+                    onClick={handleClicked}
+                  >
                     <i className="modalBtnIcon bi bi-three-dots"></i>
                   </Button>
                 </OverlayTrigger>
@@ -102,7 +127,10 @@ function ModalPost({ handleCloseModal, show }) {
                   placement="top"
                   overlay={<Tooltip>Altro</Tooltip>}
                 >
-                  <Button className="modalPostBtn me-2">
+                  <Button
+                    className={dinamicClassHidden}
+                    onClick={handleClicked}
+                  >
                     <i class="modalBtnIcon bi bi-briefcase-fill"></i>
                   </Button>
                 </OverlayTrigger>
@@ -110,7 +138,10 @@ function ModalPost({ handleCloseModal, show }) {
                   placement="top"
                   overlay={<Tooltip>Altro</Tooltip>}
                 >
-                  <Button className="modalPostBtn me-2">
+                  <Button
+                    className={dinamicClassHidden}
+                    onClick={handleClicked}
+                  >
                     <i class="modalBtnIcon bi bi-bar-chart-line-fill"></i>
                   </Button>
                 </OverlayTrigger>
@@ -118,7 +149,10 @@ function ModalPost({ handleCloseModal, show }) {
                   placement="top"
                   overlay={<Tooltip>Altro</Tooltip>}
                 >
-                  <Button className="modalPostBtn me-2">
+                  <Button
+                    className={dinamicClassHidden}
+                    onClick={handleClicked}
+                  >
                     <i class="modalBtnIcon bi bi-file-earmark-text-fill"></i>
                   </Button>
                 </OverlayTrigger>
@@ -126,7 +160,10 @@ function ModalPost({ handleCloseModal, show }) {
                   placement="top"
                   overlay={<Tooltip>Altro</Tooltip>}
                 >
-                  <Button className="modalPostBtn me-2">
+                  <Button
+                    className={dinamicClassHidden}
+                    onClick={handleClicked}
+                  >
                     <i class="modalBtnIcon bi bi-file-person-fill"></i>
                   </Button>
                 </OverlayTrigger>
@@ -136,16 +173,18 @@ function ModalPost({ handleCloseModal, show }) {
           <Modal.Footer>
             <div className="d-flex gap-2 align-items-center">
               <i className="bi bi-clock fs-5 m-0 p-0"></i>
-              <Button
-                className={
-                  inputValue === ""
-                    ? "bg-secondary disabled border-0 rounded-pill"
-                    : "bg-primary border-0 rounded-pill"
-                }
-                onClick={handleCloseModal}
-              >
-                Pubblica
-              </Button>
+              <div onClick={handleCloseAndReset}>
+                <Button
+                  className={
+                    inputValue === ""
+                      ? "bg-secondary disabled border-0 rounded-pill"
+                      : "bg-primary border-0 rounded-pill"
+                  }
+                  onClick={handleCloseModal}
+                >
+                  Pubblica
+                </Button>
+              </div>
             </div>
           </Modal.Footer>
         </Modal>

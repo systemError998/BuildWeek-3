@@ -11,6 +11,7 @@ export default function ProfileAttivitaComponent() {
     const handleCloseModal = () => {
         console.log("close modal");
         setShowModal(false);
+        
     }
     const handleShowModal = () => {
         console.log("show modal");
