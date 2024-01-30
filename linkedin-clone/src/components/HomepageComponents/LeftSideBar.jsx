@@ -4,14 +4,14 @@ import { Button, Card, ListGroup } from 'react-bootstrap'
 export default function LeftSideBar() {
     return (
         <>
-            <Card className='w-75'>
+            <Card>
                 <div class='position-relative'>
                     <Card.Img variant="top" className='imgLeftSideBar' src="https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg" />
                     <img src='https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg' alt="profile-img" style={{ height: "5em", width: "5em" }}
                         className='rounded-circle position-absolute top-100 start-50 translate-middle border border-white border-3'
                     />
                 </div>
-                <Card.Body className='py-0' style={{ height: '0px' }}>
+                <Card.Body>
                     <Card.Title className='mt-5 text-center'>Gastani Frizzi</Card.Title>
                     <Card.Text className='text-center text-secondary mt-1'>
                         Studente presso boh
@@ -31,7 +31,7 @@ export default function LeftSideBar() {
                     </ListGroup.Item>
                 </ListGroup>
             </Card>
-            <Card className='w-75 mt-2'>
+            <Card className='mt-2'>
                 <Card.Body className='pb-0'>
                 <ul className='p-0'>
                     <li className='listLeftSideBar mb-2'>
