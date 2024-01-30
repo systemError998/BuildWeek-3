@@ -22,7 +22,7 @@ export default function EsperienzaDettaglioComponent({ posizione, azienda, descr
                     style={{ width: '50px', height: '50px' }}
                     className='d-flex justify-content-center align-items-center'
                 >
-                    <i class="bi bi-buildings fs-2"></i>
+                    <i className="bi bi-buildings fs-2"></i>
                 </div>
                 <div>
                     <p className='m-0 fs-5 fw-semibold'>
@@ -38,7 +38,7 @@ export default function EsperienzaDettaglioComponent({ posizione, azienda, descr
                         {descrizione}
                     </p>
                     <p className='m-0'>
-                        <i class="bi bi-gem"></i>
+                        <i className="bi bi-gem"></i>
                         <span> Competenze</span>
                     </p>
                 </div>

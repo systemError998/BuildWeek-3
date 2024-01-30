@@ -1,10 +1,10 @@
 import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { SideBarComponent } from '../components/SideBarComponent'
-import { MainProfileComponent } from '../components/MainProfileComponent'
-import { MyProfileComponent } from '../components/MyProfileComponent'
+import { MainProfileComponent } from '../components/Profile/MainProfileComponent'
+import { MyProfileComponent } from '../components/Profile/MyProfileComponent'
 import { useParams } from 'react-router-dom'
-import FooterProfile from '../components/FooterProfile'
+import FooterProfile from '../components/Profile/FooterProfile'
 
 export default function ProfilePage() {
   const { profileId } = useParams();

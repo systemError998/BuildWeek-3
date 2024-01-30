@@ -4,11 +4,13 @@ import { endpointJobs, apiKey } from '../../api'
 
 const initialState = {
     jobs: [],
+    loading: false,
+    favourites: []
 }
 
-export const fetchJobs = createAsyncThunk("jobSearch/fetch", async () => {
-    //console.log("sono l'Uomo Focaccina")
-    const response = await axios.get(endpointJobs, {
+export const fetchJobs = createAsyncThunk("jobSearch/fetch", async ( query = '' ) => {
+    console.trace()
+    const response = await axios.get(endpointJobs + `?search=${query}`, {
         headers: {
             'Authorization': apiKey
         }
@@ -20,20 +22,38 @@ export const fetchJobs = createAsyncThunk("jobSearch/fetch", async () => {
 const jobsSlice = createSlice({
     name: 'jobs',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        removeJob: ((state, action) => {
+            console.log(action)
+            state.jobs = state.jobs.filter(job => job.company_name !== action.payload.company_name)
+        }),
+        addFavourite(state, action) {
+            console.log(action)
+            state.favourites.push(action.payload)
+        },
+        removeFavourite(state, action) {
+            console.log(action)
+            return {
+                ...state,
+                favourites: state.favourites.filter(f => f.company_name !== action.payload.company_name)
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchJobs.pending, (state) => {
-
+                state.loading = true
             })
             .addCase(fetchJobs.fulfilled, (state, action) => {
+                state.loading = false
                 state.jobs = action.payload;
             })
             .addCase(fetchJobs.rejected, (state, action) => {
-
+                state.loading = false
             });
     }
 })
 
-const { reducer } = jobsSlice;
+const { reducer , actions } = jobsSlice;
+export const { removeJob , addFavourite , removeFavourite } = actions
 export default reducer

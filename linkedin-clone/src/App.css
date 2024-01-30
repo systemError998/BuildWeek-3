@@ -129,8 +129,29 @@ background: lightgray!important;
 #collapse-right {
     position: relative;
   }
+  .imagesize {
+    height: 25em!important;
+    object-fit: cover!important;
+  }
 
   /*Job Page*/
+
+  .jobName {
+    text-decoration: none;  
+  }
+
+  .jobName:hover {
+    text-decoration: underline;
+  }
+
+  .buttonJobClose {
+    color: #666666 !important;
+    border-radius: 50%;
+  }
+
+  .buttonJobClose:hover {
+    background-color: #66666642 !important;
+  }
 
   .menuJob {
     font-size: 0.9rem !important;
@@ -164,8 +185,71 @@ background: lightgray!important;
     height: 3.5rem !important;
 }
 
+.commentImg {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+
+.commentBg{
+    background-color: #f2f2f2 !important;
+}
+
 .searchBtn {
     border-radius: 3rem !important;
     height: 3rem !important;
     width: 81% !important;
 }
+
+.crocettina:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.cuoricino {
+    position: absolute;
+    right: -2.5rem;
+}
+.cuoricino:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    color: red;
+}
+
+
+/* TYPEAHEAD STYLE */
+.typeaheadTest{
+    width: 300px;
+}
+/* TYPEAHEAD STYLE */
+
+/* NotFound Style */
+.notFoundBg{
+    height: 100vh;
+    background: url('./assets/not-found.png');
+    background-size: cover ;
+    background-position: center top -90px;
+}
+
+
+/*Modal Post*/
+
+.inputfix {
+    width: 18em!important;
+    margin-bottom: 1em!important;
+}
+
+.modalBtnIcon {
+    color: #666666 !important;
+}
+
+.modalPostBtn {
+    border-radius: 50% !important;
+    background-color: #F4F2EE !important;
+    border:none !important;
+}
+
+.modalPostBtn:hover {
+    /*box-shadow: #666666 0px 1px 0px 0.5px !important;*/
+    box-shadow: 0 5px 5px -5px #666666 !important;
+}
+
+/* END NotFound Style */
