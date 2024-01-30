@@ -1,13 +1,28 @@
 import { useState } from 'react'
 import { Card, Button, Modal, Form } from 'react-bootstrap'
-
+import ModalPost from '../ModalPost';
 export default function ProfileAttivitaComponent() {
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => {
+        console.log("close modal");
+        setShowModal(false);
+        
+    }
+    const handleShowModal = () => {
+        console.log("show modal");
+        setShowModal(true);
+    }
+
+    /*const [attivita, setAttivita] = useState(null);
+
+    useEffect(() => {
+        
+    })*/
 
     return (
         <Card className="my-2">
@@ -19,11 +34,12 @@ export default function ProfileAttivitaComponent() {
                     </div>
                     <div>
                         <Button
+                            onClick={handleShowModal}
                             variant='outline-primary'
                             className='rounded-pill border-2 fw-semibold'>
                             Crea un post
                         </Button>
-
+                        <ModalPost show={showModal} onHide={handleCloseModal} handleCloseModal={handleCloseModal} />
                         <Button
                             variant="outline-secondary"
                             className='rounded-circle ms-2 border-0'

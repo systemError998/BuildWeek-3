@@ -3,12 +3,10 @@ import EsperienzaDettaglioComponent from './EsperienzaDettaglioComponent'
 import '../../assets/css/MainProfileStyle.css'
 import { MdOutlineWork, MdCalendarMonth } from "react-icons/md";
 import React, { useEffect, useState } from 'react';
-
+import { apiKey } from '../../api';
 
 
 export default function ProfileEsperienzaComponent({ experience, profileId, updateMyProfile }) {
-
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
 
     const [show, setShow] = useState(false);
 
@@ -40,16 +38,11 @@ export default function ProfileEsperienzaComponent({ experience, profileId, upda
         handleClose();
     };
 
-
-    
-    
-
-
     function postEsperienza(id){
         fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,{
             method: 'POST',
             headers: {
-              'Authorization': `Bearer ${token}`,
+              'Authorization': `${apiKey}`,
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(postContent),

@@ -10,14 +10,10 @@ import ProfileCompetenzeComponent from './ProfileCompetenzeComponent';
 import ProfileCorsiComponent from './ProfileCorsiComponent';
 import ProfileLingueComponent from './ProfileLingueComponent';
 import ProfileInteressiComponent from './ProfileInteressiComponent';
-import PostFinto from './PostFinto';
 
-
-
+import { apiKey } from '../../api';
 
 export const MyProfileComponent = () => {
-
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
 
   const[profile, setProfile] = useState([]);
   const[experience, setExperience] = useState([]);
@@ -38,7 +34,7 @@ export const MyProfileComponent = () => {
     fetch("https://striveschool-api.herokuapp.com/api/profile/",{
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `${apiKey}`,
         'Content-Type': 'application/json',
       }
     })
@@ -61,7 +57,7 @@ export const MyProfileComponent = () => {
     fetch(urlProfile,{
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `${apiKey}`,
         'Content-Type': 'application/json',
       }
     })
@@ -75,7 +71,7 @@ export const MyProfileComponent = () => {
       return fetch(`https://striveschool-api.herokuapp.com/api/profile/${data._id}/experiences`,{
          method: 'GET',
          headers:{
-           'Authorization': `Bearer ${token}`,
+           'Authorization': `${apiKey}`,
           'Content-Type': 'application/json',
          }
        })
@@ -105,7 +101,6 @@ export const MyProfileComponent = () => {
 
   return (
     <>
-    <PostFinto />
       <ProfileInfoComponent profile={profile} updateMyProfile={updateMyProfile}/>
       <ProfileDescriptionComponent bio={profile.bio} />
       <ProfileAnalisiComponent />
