@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, Nav, Row, Col } from 'react-bootstrap';
-import LogoEpicode from '../assets/img/Logo_Epicode.jpeg'
-import LogoIfoa from '../assets/img/Logo_IFOA.jpeg'
+import LogoEpicode from '../../assets/img/Logo_Epicode.jpeg'
+import LogoIfoa from '../../assets/img/Logo_IFOA.jpeg'
 
 export default function ProfileInteressiComponent() {
     return (

@@ -104,7 +104,7 @@ export const MyProfileComponent = () => {
       <ProfileAnalisiComponent />
       <ProfileRisorseComponent />
       <ProfileAttivitaComponent />
-      <ProfileEsperienzaComponent experience={experience} />
+      <ProfileEsperienzaComponent experience={experience} profileId={profile._id} />
       <ProfileFormazioneComponent />
       <ProfileCompetenzeComponent />
       <ProfileCorsiComponent />

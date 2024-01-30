@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; {/*modifica felipe */}
 
 export default function SidebarProfiles({utenti}) {
 
@@ -12,7 +13,9 @@ export default function SidebarProfiles({utenti}) {
     .map((e, index) => 
         <>
             <div class="d-flex" key={index}>
+            <Link to={`/profilepage/${e._id}`}> {/*modifica felipe */}
                 <img class='imgCircle' src={e.image} />
+               </Link>  {/*modifica felipe */}
                 <div class="d-flex flex-column ms-2 w-75">
                     <Card.Text className='fw-bold my-0'>
                     {e.name} {e.surname}
@@ -22,6 +25,7 @@ export default function SidebarProfiles({utenti}) {
                     </Card.Text>
                     <Button variant="outline-dark" className='rndCircle w-75'><i class="bi bi-person-plus-fill"></i> Collegati</Button>
                 </div>
+             
             </div>
             <hr />
         </>

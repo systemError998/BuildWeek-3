@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react'
 import { Card, Button, Modal, Form } from 'react-bootstrap';
-import '../assets/css/MainProfileStyle.css'
+import '../../assets/css/MainProfileStyle.css'
 import { BtnDisponibileComponent } from './BtnDisponibileComponent'
 import { BtnAggiungiSezioneComponent } from './BtnAggiungiSezioneComponent';
 import { BtnAltroComponent } from './BtnAltroComponent'
-import Banner from '../assets/img/Banner-Profilo-LinkedIn.png'
+import Banner from '../../assets/img/Banner-Profilo-LinkedIn.png'
 
 export const ProfileInfoComponent = ({ profile, updateMyProfile }) => {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIyMmU3OTkxM2Y2NTAwMThkMDk1YmEiLCJpYXQiOjE3MDYxNzYxMjEsImV4cCI6MTcwNzM4NTcyMX0.O1zhA65zNqI-ZmpFBTPAmpGJ-zFueo8cw4ei9XuHWXw';
