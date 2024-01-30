@@ -21,7 +21,7 @@ export default function JobCard() {
 
   return (
     <div>
-    { loading ? (<LoadingSpinner />) 
+    { loading ? (<div className="d-flex justify-content-center"> <LoadingSpinner /> </div>) 
     : jobsResponse && jobsResponse.slice(0, 10).map((job) => (
     <div key={job._id} className="row mt-2">
       <div className="col-2">
