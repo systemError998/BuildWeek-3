@@ -5,10 +5,11 @@ import { endpointJobs, apiKey } from '../../api'
 const initialState = {
     jobs: [],
     loading: false,
+    favourites: []
 }
 
-export const fetchJobs = createAsyncThunk("jobSearch/fetch", async (query) => {
-    //console.log("sono l'Uomo Focaccina") <3
+export const fetchJobs = createAsyncThunk("jobSearch/fetch", async ( query = '' ) => {
+    console.trace()
     const response = await axios.get(endpointJobs + `?search=${query}`, {
         headers: {
             'Authorization': apiKey
@@ -21,7 +22,23 @@ export const fetchJobs = createAsyncThunk("jobSearch/fetch", async (query) => {
 const jobsSlice = createSlice({
     name: 'jobs',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        removeJob: ((state, action) => {
+            console.log(action)
+            state.jobs = state.jobs.filter(job => job.company_name !== action.payload.company_name)
+        }),
+        addFavourite(state, action) {
+            console.log(action)
+            state.favourites.push(action.payload)
+        },
+        removeFavourite(state, action) {
+            console.log(action)
+            return {
+                ...state,
+                favourites: state.favourites.filter(f => f.company_name !== action.payload.company_name)
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchJobs.pending, (state) => {
@@ -37,5 +54,6 @@ const jobsSlice = createSlice({
     }
 })
 
-const { reducer } = jobsSlice;
+const { reducer , actions } = jobsSlice;
+export const { removeJob , addFavourite , removeFavourite } = actions
 export default reducer
