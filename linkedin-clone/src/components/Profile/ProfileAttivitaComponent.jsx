@@ -18,6 +18,12 @@ export default function ProfileAttivitaComponent() {
         setShowModal(true);
     }
 
+    /*const [attivita, setAttivita] = useState(null);
+
+    useEffect(() => {
+        
+    })*/
+
     return (
         <Card className="my-2">
             <Card.Body>
