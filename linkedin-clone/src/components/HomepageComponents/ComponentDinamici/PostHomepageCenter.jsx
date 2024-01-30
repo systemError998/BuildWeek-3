@@ -10,11 +10,14 @@ import { AiFillLike } from "react-icons/ai";
 import { PiHandsClapping } from "react-icons/pi";
 import { FaRegSmile } from "react-icons/fa";
 import { SlPicture } from "react-icons/sl";
-
+import { useSelector } from 'react-redux';
+import LoadingSpinner from "../../LoadingSpinner";
 
 export default function PostHomepageCenter({post}) {
 
   const [open, setOpen] = useState(false);
+  const loading = useSelector(state => state.homepageUser.loading)
+  //console.log(loading);
 
   return (
     <>
@@ -31,7 +34,9 @@ export default function PostHomepageCenter({post}) {
             <a href="#" className='text-decoration-none text-secondary fs-6'><i class="bi bi-card-text text-danger fs-5 me-1"></i> Scrivi un articolo</a>
         </div>
     </Card>
-    {post && post
+    { loading ? (<div className="d-flex justify-content-center"> <LoadingSpinner /> </div>) 
+    :
+    post && post
     .slice(5)
     .sort(() => Math.random() - 0.5)
     .slice(5,10)
